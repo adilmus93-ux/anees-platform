@@ -1,0 +1,2367 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة أنيس | المسيرة العلمية للدكتور مصطفى العادل</title>
+    <!-- Fonts (Amiri, Aref Ruqaa, Reem Kufi, Cairo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@300;400;500;600;700;800;900&family=Reem+Kufi:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#15803d',
+                            600: '#166534',
+                            700: '#14532d',
+                            800: '#0f3f22',
+                            900: '#062814',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        },
+                        navy: {
+                            800: '#0f172a',
+                            900: '#020617',
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        amiri: ['Amiri', 'serif'],
+                        ruqaa: ['"Aref Ruqaa"', 'serif'],
+                        kufi: ['"Reem Kufi"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .font-academic {
+            font-family: 'Amiri', serif;
+        }
+        .font-ruqaa {
+            font-family: 'Aref Ruqaa', 'Amiri', serif;
+        }
+        .font-kufi {
+            font-family: 'Reem Kufi', 'Cairo', sans-serif;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #15803d;
+            border-radius: 4px;
+        }
+        /* 3D Book spine shadow effect */
+        .book-card {
+            perspective: 1000px;
+            transition: all 0.3s ease;
+        }
+        .book-card:hover {
+            transform: translateY(-6px);
+        }
+        .book-cover-effect {
+            box-shadow: -5px 6px 15px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .book-cover-effect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 7px;
+            height: 100%;
+            background: linear-gradient(to left, rgba(255,255,255,0.3), rgba(0,0,0,0.2));
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen transition-colors duration-200">
+
+    <!-- Top Notice / Admin Control Bar & Top Sections Navigation -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/95 dark:bg-slate-900/95 border-b border-slate-200 dark:border-slate-800 shadow-sm no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Row 1: Brand & Actions -->
+            <div class="flex items-center justify-between h-16 border-b border-slate-100 dark:border-slate-800/60">
+                <!-- Brand / Logo (The letter Dhad on the book with radiant sunburst rays) -->
+                <div class="flex items-center gap-3">
+                    <div onclick="selectSection('sec_home')" class="cursor-pointer relative w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-tr from-emerald-900 via-emerald-800 to-slate-900 p-1 shadow-md shadow-emerald-950/30 border border-amber-400/40 flex items-center justify-center shrink-0 group hover:scale-105 transition-transform" title="الصفحة الرئيسية - أنيس">
+                        <svg viewBox="0 0 100 100" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <radialGradient id="sunburstGrad" cx="50%" cy="40%" r="50%">
+                                    <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.9"/>
+                                    <stop offset="55%" stop-color="#f59e0b" stop-opacity="0.35"/>
+                                    <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+                                </radialGradient>
+                                <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#fef08a"/>
+                                    <stop offset="50%" stop-color="#f59e0b"/>
+                                    <stop offset="100%" stop-color="#d97706"/>
+                                </linearGradient>
+                                <linearGradient id="bookGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#ffffff"/>
+                                    <stop offset="100%" stop-color="#cbd5e1"/>
+                                </linearGradient>
+                            </defs>
+                            <!-- Radiant Sunburst Rays of Knowledge -->
+                            <circle cx="50" cy="40" r="32" fill="url(#sunburstGrad)" />
+                            <g stroke="#fbbf24" stroke-width="1.3" opacity="0.6" stroke-linecap="round">
+                                <line x1="50" y1="10" x2="50" y2="17" />
+                                <line x1="68" y1="16" x2="63" y2="22" />
+                                <line x1="32" y1="16" x2="37" y2="22" />
+                                <line x1="80" y1="30" x2="73" y2="34" />
+                                <line x1="20" y1="30" x2="27" y2="34" />
+                                <line x1="83" y1="45" x2="76" y2="46" />
+                                <line x1="17" y1="45" x2="24" y2="46" />
+                            </g>
+                            <!-- Open Manuscript Book Base -->
+                            <path d="M50 80 C42 75, 25 74, 15 78 C14 73, 14 57, 15 53 C26 50, 41 51, 50 55 C59 51, 74 50, 85 53 C86 57, 86 73, 85 78 C75 74, 58 75, 50 80 Z" fill="url(#bookGrad)" />
+                            <path d="M50 55 L50 80" stroke="#0f172a" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+                            <path d="M15 53 C26 50, 41 51, 50 55 C59 51, 74 50, 85 53" stroke="#f59e0b" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+                            <!-- Dot of Dhad (Golden Shining Star) -->
+                            <circle cx="48" cy="23" r="3.4" fill="#fef08a" stroke="#d97706" stroke-width="0.8"/>
+                            <!-- Calligraphic Letter Dhad (ض) in Golden Glow -->
+                            <path d="M67 42 C65 35, 54 33, 46 35 C38 37, 35 43, 38 47 C41 50, 56 50, 63 45 C68 42, 68 47, 66 51 C62 57, 52 61, 42 60 C34 59, 27 54, 26 49" stroke="url(#goldGrad)" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span onclick="selectSection('sec_home')" class="cursor-pointer text-2xl sm:text-3xl font-bold tracking-normal text-emerald-800 dark:text-emerald-400 font-ruqaa hover:text-emerald-600 transition-colors">أَنِيـــــس</span>
+                            <span class="text-[10px] sm:text-xs bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 font-semibold px-2 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800 font-kufi">لسانيات وإبداع</span>
+                        </div>
+                        <p class="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 truncate max-w-[210px] sm:max-w-xs font-academic">المسيرة العلمية للدكتور مصطفى العادل</p>
+                    </div>
+                </div>
+
+                <!-- Actions & Admin Toolbar -->
+                <div class="flex items-center gap-2">
+                    <!-- Search button -->
+                    <button onclick="toggleSearchModal()" title="بحث في المحتوى والإنتاج" class="p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                        <i data-lucide="search" class="w-5 h-5"></i>
+                    </button>
+
+                    <!-- Dark Mode Toggle -->
+                    <button onclick="toggleDarkMode()" title="تبديل الوضع الليلي" class="p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                        <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
+                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block text-amber-400"></i>
+                    </button>
+
+                    <!-- Edit Mode Switch -->
+                    <button id="adminModeBtn" onclick="toggleEditMode()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200 hover:bg-emerald-50 hover:text-emerald-700 dark:hover:bg-emerald-950/40">
+                        <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
+                        <span id="adminModeText">تفعيل وضع التحرير</span>
+                    </button>
+
+                    <!-- Data Backup & Reset Dropdown -->
+                    <div class="relative">
+                        <button onclick="toggleSettingsMenu()" class="p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+                            <i data-lucide="more-vertical" class="w-5 h-5"></i>
+                        </button>
+                        <div id="settingsMenu" class="hidden absolute left-0 mt-2 w-56 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 py-1.5 text-xs z-50">
+                            <button onclick="exportDataJson()" class="w-full text-right px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                                <i data-lucide="download" class="w-4 h-4 text-emerald-600"></i> تصدير نسخة احتياطية (JSON)
+                            </button>
+                            <label class="w-full text-right px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center gap-2 text-slate-700 dark:text-slate-300 cursor-pointer">
+                                <i data-lucide="upload" class="w-4 h-4 text-blue-600"></i> استيراد نسخة احتياطية
+                                <input type="file" id="importFileInput" accept=".json" onchange="importDataJson(event)" class="hidden">
+                            </label>
+                            <button onclick="printCV()" class="w-full text-right px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                                <i data-lucide="printer" class="w-4 h-4 text-amber-600"></i> طباعة / تصدير السيرة (PDF)
+                            </button>
+                            <div class="border-t border-slate-200 dark:border-slate-800 my-1"></div>
+                            <button onclick="resetToDefaultData()" class="w-full text-right px-4 py-2 hover:bg-red-50 dark:hover:bg-red-950/40 text-red-600 dark:text-red-400 flex items-center gap-2">
+                                <i data-lucide="rotate-ccw" class="w-4 h-4"></i> استعادة البيانات الأصلية
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2: Top Main Sections Bar (All Platform Sections) -->
+            <div class="flex items-center gap-1.5 py-2.5 overflow-x-auto scrollbar-none" id="topSectionsNav">
+                <!-- Dynamically populated clickable section tabs -->
+            </div>
+        </div>
+    </header>
+    </header>
+
+    <!-- Admin Alert Bar (Visible only when Edit Mode is active) -->
+    <div id="editModeNotice" class="hidden bg-gradient-to-r from-amber-500/10 via-amber-500/20 to-amber-500/10 border-b border-amber-300/40 dark:border-amber-700/40 px-4 py-2 text-center text-xs text-amber-900 dark:text-amber-200 font-medium no-print">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <span class="flex items-center gap-2">
+                <i data-lucide="shield-alert" class="w-4 h-4 text-amber-600 dark:text-amber-400"></i>
+                وضع التحرير مُفعّل: يمكنك الآن إضافة أقسام جديدة، وتعديل محتويات السيرة، ورفع الأغلفة والملفات، أو حذف أي عنصر.
+            </span>
+            <div class="flex items-center gap-2">
+                <button onclick="openAddSectionModal()" class="bg-amber-600 hover:bg-amber-700 text-white px-2.5 py-1 rounded text-xs flex items-center gap-1 shadow-sm">
+                    <i data-lucide="folder-plus" class="w-3.5 h-3.5"></i> قسم جديد
+                </button>
+                <button onclick="toggleEditMode()" class="text-amber-800 dark:text-amber-300 hover:underline">
+                    إنهاء التحرير
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero / Profile Header Section -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-emerald-950 via-emerald-900 to-slate-900 text-white pt-12 pb-16 border-b border-emerald-950">
+        <!-- Subtle Academic geometric background overlay -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+
+        <!-- Floating Arabic Calligraphy Letters Watermark (Linguistic motif) -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none select-none z-0">
+            <span class="absolute text-8xl sm:text-9xl font-ruqaa text-white/[0.04] top-2 right-8 rotate-12">ض</span>
+            <span class="absolute text-7xl sm:text-8xl font-ruqaa text-amber-300/[0.05] bottom-4 right-1/4 -rotate-6">ل</span>
+            <span class="absolute text-9xl sm:text-[11rem] font-ruqaa text-emerald-300/[0.05] top-4 left-1/3 rotate-45">س</span>
+            <span class="absolute text-7xl sm:text-8xl font-ruqaa text-white/[0.04] bottom-6 left-12 -rotate-12">ن</span>
+            <span class="absolute text-6xl sm:text-7xl font-ruqaa text-amber-200/[0.04] top-1/2 left-4 rotate-12">ع</span>
+            <span class="absolute text-8xl sm:text-9xl font-ruqaa text-emerald-200/[0.04] -top-2 right-1/2 -rotate-12">ب</span>
+            <span class="absolute text-6xl sm:text-7xl font-ruqaa text-white/[0.03] bottom-2 right-10 rotate-6">ق</span>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+                <!-- Profile Avatar & Cover preview -->
+                <div class="relative group cursor-pointer" onclick="openProfilePhotoModal()" title="انقر لتغيير الصورة الشخصية">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl bg-gradient-to-tr from-amber-400 to-emerald-300 p-1 shadow-2xl shadow-emerald-950/50 overflow-hidden relative">
+                        <img id="profileImage" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80" alt="صورة الدكتور مصطفى العادل" class="w-full h-full object-cover rounded-xl bg-slate-800 transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white text-xs font-semibold gap-1.5 backdrop-blur-[1px]">
+                            <i data-lucide="camera" class="w-6 h-6 text-amber-300"></i>
+                            <span class="font-kufi">تغيير الصورة</span>
+                        </div>
+                    </div>
+                    <!-- Direct change button -->
+                    <button type="button" onclick="event.stopPropagation(); openProfilePhotoModal()" class="absolute -bottom-2 -left-2 bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl shadow-lg border border-white/20 transition-all flex items-center gap-1.5 text-xs font-semibold font-kufi" title="تغيير الصورة الشخصية">
+                        <i data-lucide="camera" class="w-3.5 h-3.5"></i>
+                        <span>تغيير الصورة</span>
+                    </button>
+                </div>
+
+                <!-- Academic Info -->
+                <div class="flex-1 text-center md:text-right">
+                    <div class="inline-flex items-center gap-2 bg-emerald-800/80 border border-emerald-600/40 text-emerald-200 text-xs px-3 py-1 rounded-full mb-3 font-kufi">
+                        <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-amber-300"></i>
+                        <span>دكتوراه في اللسانيات العربية | باحث ومؤلف</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-100 to-white font-ruqaa mb-3 leading-tight tracking-wide drop-shadow-sm">
+                        الدكتور مصطفى العادل
+                    </h1>
+
+                    <p class="text-emerald-100/90 text-sm sm:text-base max-w-3xl leading-relaxed mb-6 font-academic">
+                        باحث مغربي في اللسانيات العربية ونظريات تحليل الخطاب والتأويليات الحديثة، خبير ومصمم أغلفة ومصفف كتب معتمد، مدرس وناقد ومؤلف لأكثر من 15 مؤلفاً بين كتب فردية وجماعية ومقالات محكمة.
+                    </p>
+
+                    <!-- Quick Contact Badges -->
+                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 text-xs">
+                        <a href="tel:+212678061987" class="flex items-center gap-1.5 bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg border border-white/10 backdrop-blur-sm transition-colors">
+                            <i data-lucide="phone" class="w-3.5 h-3.5 text-amber-300"></i>
+                            <span dir="ltr">+212 678-061987</span>
+                        </a>
+                        <a href="mailto:adilmus93@gmail.com" class="flex items-center gap-1.5 bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg border border-white/10 backdrop-blur-sm transition-colors">
+                            <i data-lucide="mail" class="w-3.5 h-3.5 text-emerald-300"></i>
+                            <span>adilmus93@gmail.com</span>
+                        </a>
+                        <a href="https://maps.app.goo.gl/Fw9uzEEj2NYj2oVB6" target="_blank" class="flex items-center gap-1.5 bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg border border-white/10 backdrop-blur-sm transition-colors">
+                            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-rose-300"></i>
+                            <span>أيت بوكماز، أزيلال، المغرب</span>
+                        </a>
+                        <a href="https://musadl99.blogspot.com/" target="_blank" class="flex items-center gap-1.5 bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg border border-white/10 backdrop-blur-sm transition-colors">
+                            <i data-lucide="globe" class="w-3.5 h-3.5 text-blue-300"></i>
+                            <span>مركز الاقتحام (المدونة)</span>
+                        </a>
+                        <a href="http://t.me/mustaphaeladel123" target="_blank" class="flex items-center gap-1.5 bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg border border-white/10 backdrop-blur-sm transition-colors">
+                            <i data-lucide="send" class="w-3.5 h-3.5 text-sky-300"></i>
+                            <span>تيليغرام</span>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61554745970123" target="_blank" class="flex items-center gap-1.5 bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg border border-white/10 backdrop-blur-sm transition-colors">
+                            <i data-lucide="facebook" class="w-3.5 h-3.5 text-blue-400"></i>
+                            <span>فيسبوك</span>
+                        </a>
+                        <a href="https://youtube.com/channel/UCPGyU2OQNCMAZ_B_n53tbqQ?si=4kTGfRsIzOXlLzjK" target="_blank" class="flex items-center gap-1.5 bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg border border-white/10 backdrop-blur-sm transition-colors">
+                            <i data-lucide="youtube" class="w-3.5 h-3.5 text-red-400"></i>
+                            <span>يوتيوب</span>
+                        </a>
+                        <a href="https://www.alaraby.co.uk/author/24029/%D9%85%D8%B5%D8%B7%D9%81%D9%89-%D8%A7%D9%84%D8%B9%D8%A7%D8%AF%D9%84" target="_blank" class="flex items-center gap-1.5 bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 px-3 py-1.5 rounded-lg border border-amber-400/30 backdrop-blur-sm transition-colors">
+                            <i data-lucide="newspaper" class="w-3.5 h-3.5 text-amber-300"></i>
+                            <span>مقالات (العربي الجديد: 34 مقالاً)</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 pt-8 border-t border-emerald-800/60 text-center">
+                <div onclick="selectSection('sec_books')" title="انقر لعرض قسم الكتب الفردية" class="bg-white/5 hover:bg-white/10 cursor-pointer backdrop-blur-md rounded-xl p-3 border border-white/5 transition-all group">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-amber-400 group-hover:scale-105 transition-transform" id="statBooksCount">11+</div>
+                    <div class="text-xs text-emerald-200 mt-1">كتب فردية وروايات</div>
+                </div>
+                <div onclick="selectSection('sec_group_books')" title="انقر لعرض قسم الكتب الجماعية والتنسيق" class="bg-white/5 hover:bg-white/10 cursor-pointer backdrop-blur-md rounded-xl p-3 border border-white/5 transition-all group">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-emerald-300 group-hover:scale-105 transition-transform" id="statGroupBooksCount">12+</div>
+                    <div class="text-xs text-emerald-200 mt-1">كتب جماعية وتنسيق</div>
+                </div>
+                <div onclick="selectSection('sec_conferences')" title="انقر لعرض قسم المؤتمرات والندوات" class="bg-white/5 hover:bg-white/10 cursor-pointer backdrop-blur-md rounded-xl p-3 border border-white/5 transition-all group">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-sky-300 group-hover:scale-105 transition-transform" id="statConferencesCount">15+</div>
+                    <div class="text-xs text-emerald-200 mt-1">مؤتمرات وندوات دولية</div>
+                </div>
+                <div onclick="selectSection('sec_articles')" title="انقر لعرض قسم المقالات والأبحاث" class="bg-white/5 hover:bg-white/10 cursor-pointer backdrop-blur-md rounded-xl p-3 border border-white/5 transition-all group">
+                    <div class="text-2xl sm:text-3xl font-extrabold text-rose-300 group-hover:scale-105 transition-transform" id="statArticlesCount">38+</div>
+                    <div class="text-xs text-emerald-200 mt-1">أبحاث ومقالات صحفية</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Container (Displays ONLY the clicked section from the top) -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10" id="mainContent">
+        <!-- Dynamic Section Holder -->
+        <div id="sectionsContainer">
+            <!-- Selected section rendered via JavaScript -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-10 mt-20 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-right flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                <p class="font-academic text-lg font-bold text-emerald-800 dark:text-emerald-400">منصة أنيس | المسيرة العلمية للدكتور مصطفى العادل</p>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">جميع الحقوق العلمية والأدبية محفوظة © <span id="currentYear">2026</span></p>
+            </div>
+            <div class="flex items-center gap-4 text-xs text-slate-500">
+                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-emerald-600 flex items-center gap-1">
+                    <i data-lucide="arrow-up" class="w-4 h-4"></i> العودة للأعلى
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== MODALS ==================== -->
+
+    <!-- Profile Photo Modal -->
+    <div id="profilePhotoModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl w-full max-w-md border border-slate-200 dark:border-slate-800 shadow-2xl p-6">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800 mb-4">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-950/70 text-emerald-700 dark:text-emerald-300 flex items-center justify-center">
+                        <i data-lucide="camera" class="w-4 h-4"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white font-academic">تغيير الصورة الشخصية</h3>
+                </div>
+                <button onclick="closeProfilePhotoModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Live Photo Preview -->
+            <div class="flex flex-col items-center justify-center mb-5">
+                <div class="w-32 h-32 rounded-2xl bg-gradient-to-tr from-amber-400 to-emerald-400 p-1 shadow-xl overflow-hidden mb-2">
+                    <img id="photoModalPreview" src="" alt="معاينة الصورة" class="w-full h-full object-cover rounded-xl bg-slate-800">
+                </div>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400">معاينة الصورة المعتمدة</p>
+            </div>
+
+            <div class="space-y-4 text-xs">
+                <!-- Option 1: Upload from Computer -->
+                <div class="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700">
+                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1 flex items-center justify-between">
+                        <span>اختيار صورة من جهازك:</span>
+                        <span class="text-[10px] text-emerald-600 font-normal">PNG, JPG, WebP</span>
+                    </label>
+                    <input type="file" id="profileModalFileInput" accept="image/*" onchange="handleProfileFileUpload(event)" class="w-full text-[11px] text-slate-500 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-emerald-600 file:text-white hover:file:bg-emerald-700 cursor-pointer">
+                </div>
+
+                <!-- Option 2: Paste Image URL -->
+                <div>
+                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">أو الصق رابط صورة مباشر:</label>
+                    <input type="url" id="profileModalUrlInput" oninput="handleProfileUrlChange(event)" placeholder="https://example.com/photo.jpg" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-2.5 dark:text-white focus:ring-2 focus:ring-emerald-500">
+                </div>
+
+                <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between gap-2">
+                    <button type="button" onclick="resetDefaultProfilePhoto()" class="text-xs text-rose-600 hover:text-rose-700 hover:underline">
+                        استعادة الافتراضية
+                    </button>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="closeProfilePhotoModal()" class="px-3.5 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200">إلغاء</button>
+                        <button type="button" onclick="saveProfilePhoto()" class="px-4 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold shadow-sm">حفظ الصورة</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div id="searchModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl w-full max-w-2xl border border-slate-200 dark:border-slate-800 shadow-2xl p-6">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800 mb-4">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="search" class="w-5 h-5 text-emerald-600"></i>
+                    <h3 class="text-base font-bold text-slate-800 dark:text-slate-100">بحث في السيرة والمؤلفات والأبحاث</h3>
+                </div>
+                <button onclick="toggleSearchModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="relative mb-4">
+                <input type="text" id="searchInput" oninput="performSearch()" placeholder="اكتب عنوان كتاب، مؤتمر، سنة، أو كلمة مفتاحية..." class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:text-white">
+            </div>
+            <div id="searchResults" class="max-h-96 overflow-y-auto space-y-2 text-sm">
+                <div class="text-center text-slate-400 py-8">ابدأ بالكتابة للبحث في الإنتاج العلمي والسيرة...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add / Edit Section Modal -->
+    <div id="sectionModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl w-full max-w-lg border border-slate-200 dark:border-slate-800 shadow-2xl p-6">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800 mb-4">
+                <h3 id="sectionModalTitle" class="text-base font-bold text-slate-800 dark:text-slate-100">إضافة قسم جديد</h3>
+                <button onclick="closeSectionModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <form id="sectionForm" onsubmit="saveSection(event)" class="space-y-4 text-xs">
+                <input type="hidden" id="sectionEditId">
+                <div>
+                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">عنوان القسم *</label>
+                    <input type="text" id="sectionTitleInput" required class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-2.5 dark:text-white focus:ring-2 focus:ring-emerald-500">
+                </div>
+                <div>
+                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">وصف مختصر للقسم</label>
+                    <input type="text" id="sectionDescInput" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-2.5 dark:text-white focus:ring-2 focus:ring-emerald-500">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">أيقونة القسم (Lucide)</label>
+                        <select id="sectionIconInput" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-2.5 dark:text-white">
+                            <option value="book-open">كتاب (book-open)</option>
+                            <option value="graduation-cap">أكاديمي (graduation-cap)</option>
+                            <option value="briefcase">خبرات (briefcase)</option>
+                            <option value="file-text">أبحاث ومقالات (file-text)</option>
+                            <option value="award">مؤتمرات وجوائز (award)</option>
+                            <option value="bookmark">كتب جماعية (bookmark)</option>
+                            <option value="palette">تصميم وأغلفة (palette)</option>
+                            <option value="user">شخصي وسيرة (user)</option>
+                            <option value="folder">عام (folder)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">نمط العرض الافتراضي</label>
+                        <select id="sectionLayoutInput" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-2.5 dark:text-white">
+                            <option value="cards">بطاقات كتب ثلاثية الأبعاد (Books Grid)</option>
+                            <option value="timeline">جدول زمني أكاديمي (Timeline)</option>
+                            <option value="list">قائمة تفصيلية مع ملفات (Detailed List)</option>
+                            <option value="grid">شبكة بطاقات مرنة (Items Grid)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex justify-end gap-2 pt-3 border-t border-slate-200 dark:border-slate-800">
+                    <button type="button" onclick="closeSectionModal()" class="px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200">إلغاء</button>
+                    <button type="submit" class="px-5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold">حفظ القسم</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add / Edit Item (Book, Article, Conference, Exp) Modal -->
+    <div id="itemModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl w-full max-w-xl border border-slate-200 dark:border-slate-800 shadow-2xl p-6 my-8">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800 mb-4">
+                <h3 id="itemModalTitle" class="text-base font-bold text-slate-800 dark:text-slate-100">إضافة عنصر جديد</h3>
+                <button onclick="closeItemModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <form id="itemForm" onsubmit="saveItem(event)" class="space-y-4 text-xs">
+                <input type="hidden" id="itemSectionId">
+                <input type="hidden" id="itemEditId">
+
+                <div>
+                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">العنوان الرئيسي (عنوان الكتاب / البحث / الشهادة / النشاط) *</label>
+                    <input type="text" id="itemTitleInput" required class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-2.5 dark:text-white focus:ring-2 focus:ring-emerald-500">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">السنة / التاريخ (مثال: 2026 أو 2024-2025)</label>
+                        <input type="text" id="itemYearInput" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-2.5 dark:text-white">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">الجهة / الناشر / المؤسسة (مثال: دار ركاز، جامعة محمد الأول)</label>
+                        <input type="text" id="itemPublisherInput" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-2.5 dark:text-white">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1">وصف أو نبذة تفصيلية أو محاور البحث</label>
+                    <textarea id="itemDescInput" rows="3" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-2.5 dark:text-white focus:ring-2 focus:ring-emerald-500"></textarea>
+                </div>
+
+                <!-- Cover / Image Upload or URL -->
+                <div class="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700">
+                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1 flex items-center justify-between">
+                        <span>غلاف الكتاب أو صورة توثيقية</span>
+                        <span class="text-[11px] text-emerald-600 font-normal">رفع ملف أو رابط صورة</span>
+                    </label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-center">
+                        <input type="file" id="itemCoverFileInput" accept="image/*" onchange="handleCoverUpload(event)" class="text-[11px] text-slate-500 file:mr-2 file:py-1 file:px-2 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100">
+                        <input type="url" id="itemCoverUrlInput" placeholder="أو الصق رابط صورة مباشرة https://..." class="w-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-2 dark:text-white">
+                    </div>
+                    <!-- Preview -->
+                    <div id="coverPreviewContainer" class="mt-2 hidden flex items-center gap-3">
+                        <img id="coverPreviewImg" src="" alt="معاينة الغلاف" class="w-12 h-16 object-cover rounded shadow border">
+                        <span class="text-[11px] text-slate-500">تم تجهيز الغلاف بنجاح</span>
+                        <button type="button" onclick="clearCoverPreview()" class="text-red-500 hover:text-red-700 text-xs mr-auto">إزالة الغلاف</button>
+                    </div>
+                </div>
+
+                <!-- PDF File Upload or URL -->
+                <div class="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-700">
+                    <label class="block font-semibold text-slate-700 dark:text-slate-300 mb-1 flex items-center justify-between">
+                        <span>ملف البحث أو الكتاب (PDF / مستند)</span>
+                        <span class="text-[11px] text-blue-600 font-normal">رفع ملف أو رابط تحميل</span>
+                    </label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-center">
+                        <input type="file" id="itemDocFileInput" accept=".pdf,.doc,.docx" onchange="handleDocUpload(event)" class="text-[11px] text-slate-500 file:mr-2 file:py-1 file:px-2 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                        <input type="url" id="itemFileUrlInput" placeholder="أو رابط التحميل/المجلة https://..." class="w-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg p-2 dark:text-white">
+                    </div>
+                    <div id="docPreviewContainer" class="mt-2 hidden flex items-center gap-2">
+                        <i data-lucide="file-check" class="w-4 h-4 text-emerald-500"></i>
+                        <span id="docFileName" class="text-[11px] text-slate-600 dark:text-slate-300 truncate max-w-xs"></span>
+                        <button type="button" onclick="clearDocPreview()" class="text-red-500 hover:text-red-700 text-xs mr-auto">إزالة الملف</button>
+                    </div>
+                </div>
+
+                <div class="flex justify-end gap-2 pt-3 border-t border-slate-200 dark:border-slate-800">
+                    <button type="button" onclick="closeItemModal()" class="px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200">إلغاء</button>
+                    <button type="submit" class="px-5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold">حفظ العنصر</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Details View Modal (For Visitors clicking on a book/item) -->
+    <div id="viewModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl w-full max-w-2xl border border-slate-200 dark:border-slate-800 shadow-2xl p-6 max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800 mb-4">
+                <span class="text-xs font-semibold px-2.5 py-1 rounded bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300" id="viewItemBadge"></span>
+                <button onclick="closeViewModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-6">
+                <div id="viewCoverCol" class="w-full sm:w-1/3 flex justify-center">
+                    <!-- Cover image or placeholder -->
+                </div>
+                <div class="w-full sm:w-2/3">
+                    <h3 id="viewItemTitle" class="text-xl font-bold font-academic text-slate-900 dark:text-white mb-2 leading-relaxed"></h3>
+                    <p id="viewItemMeta" class="text-xs text-slate-500 dark:text-slate-400 mb-4 flex flex-wrap gap-2"></p>
+                    <div id="viewItemDesc" class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed space-y-2 mb-6"></div>
+                    <div id="viewItemActions" class="flex flex-wrap gap-2 pt-4 border-t border-slate-100 dark:border-slate-800"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Script -->
+    <script>
+        // Storage Keys
+        const STORAGE_KEY = 'anees_academic_platform_data_v1';
+        const EDIT_MODE_KEY = 'anees_edit_mode_active';
+        const THEME_KEY = 'anees_theme_dark';
+
+        // Default Full Data from User CV
+        const defaultData = {
+            profile: {
+                name: "الدكتور مصطفى العادل",
+                title: "باحث مغربي في اللسانيات العربية",
+                birth: "7 شتنبر 1993م",
+                nationality: "مغربي",
+                cin: "IC82387",
+                passport: "ZL0850760",
+                status: "متزوج",
+                address: "أيت بوكماز، أزيلال، بني ملال خنيفرة - المغرب",
+                phone: "+2126-78061987",
+                email: "adilmus93@gmail.com",
+                mapUrl: "https://maps.app.goo.gl/Fw9uzEEj2NYj2oVB6",
+                blogUrl: "https://musadl99.blogspot.com/",
+                telegramUrl: "http://t.me/mustaphaeladel123",
+                facebookUrl: "https://www.facebook.com/profile.php?id=61554745970123",
+                youtubeUrl: "https://youtube.com/channel/UCPGyU2OQNCMAZ_B_n53tbqQ?si=4kTGfRsIzOXlLzjK",
+                avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80"
+            },
+            sections: [
+                {
+                    id: "sec_home",
+                    title: "الرئيسية",
+                    desc: "مدخل جامع إلى المشروع العلمي والفكري والمسيرة الأكاديمية للدكتور مصطفى العادل",
+                    icon: "home",
+                    layout: "home",
+                    items: []
+                },
+                {
+                    id: "sec_books",
+                    title: "الكتب الفردية",
+                    desc: "المؤلفات والكتب الفردية المنشورة في دور النشر العربية والمغربية",
+                    icon: "book-open",
+                    layout: "cards",
+                    items: [
+                        {
+                            id: "book_1",
+                            title: "البوصلة المعطلة والآخر المربك: في أطروحة البلاغة الوجودية لمحمد بازي",
+                            year: "2026",
+                            publisher: "عالم الكتب الحديث، الأردن، ط1",
+                            desc: "دراسة نقدية وفلسفية استقصائية تستشرف أطروحة البلاغة الوجودية وتفكك سؤال الآخر وإشكالات المعنى في المشروع البلاغي للدكتور محمد بازي.",
+                            cover: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "book_2",
+                            title: "الخطاب النقدي المسدّد: فلسفة القصدية من منظور التأويلية الجديدة",
+                            year: "2026",
+                            publisher: "عالم الكتب الحديث، الأردن، ط1",
+                            desc: "بحث معمق في التأويليات الجديدة وفلسفة القصدية في الخطاب النقدي العربي، يقدم رؤية ابستيمولوجية واعدة لقراءة النصوص وتحليلها.",
+                            cover: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=600&q=80",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "book_3",
+                            title: "ربكم أعلم بكم: اكتب ما تسرك رؤيته",
+                            year: "2026",
+                            publisher: "دار ركاز للنشر والتوزيع، الأردن",
+                            desc: "ضمن سلسلة (تكثيف الوعي وتحجيم الوهم من أجل الجيل الصاعد - رقم 4). مؤلف فكري تربوي يجمع بين التزكية الإيمانية وتوجيه البصيرة.",
+                            cover: "https://images.unsplash.com/photo-1532012164546-f432f2e3777a?auto=format&fit=crop&w=600&q=80",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "book_4",
+                            title: "كذلك قال ربك: اصنع لنفسك طريقا",
+                            year: "2025",
+                            publisher: "دار ركاز للنشر والتوزيع، الأردن",
+                            desc: "ضمن سلسلة (تكثيف الوعي وتحجيم الوهم من أجل الجيل الصاعد - رقم 3). دراسة في بناء الذات وتجديد الإرادة في ضوء النص القرآني.",
+                            cover: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "book_5",
+                            title: "لهم البشرى: مفاتيحك لحياة سعيدة وناجحة",
+                            year: "2025",
+                            publisher: "دار ركاز للنشر والتوزيع، الأردن",
+                            desc: "ضمن سلسلة (تكثيف الوعي وتحجيم الوهم من أجل الجيل الصاعد - رقم 2). رؤية تجمع بين علم النفس التربوي والمقاصد الشرعية للطمأنينة والإنجاز.",
+                            cover: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=600&q=80",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "book_6",
+                            title: "صناعة النظرية وبناء النموذج المعرفي: مداخل أساس إلى المشروع العلمي للدكتور محمد بازي في التأويليات والبلاغة ونظرية الأدب",
+                            year: "2025",
+                            publisher: "عالم الكتب الحديث، الأردن",
+                            desc: "تفكيك المداخل المنهجية والمعرفية التي شيد عليها الدكتور محمد بازي نسقه البلاغي والتأويلي الحديث.",
+                            cover: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=600&q=80",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "book_7",
+                            title: "شمس.. حب برائحة الكتب: تكثيف الوعي وتحجيم الوهم",
+                            year: "2025",
+                            publisher: "مؤسسة الآن ناشرون وموزعون، الأردن",
+                            desc: "كتاب فكري وأدبي يتناول الشغف المعرفي، والصلة الحية مع الكتب وصناعة العقل القارئ.",
+                            cover: "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=600&q=80",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "book_8",
+                            title: "النقد اللساني في الثقافة العربية (في جزأين)",
+                            year: "2024",
+                            publisher: "دار ركاز للنشر والتوزيع، الأردن",
+                            desc: "أصل هذا الكتاب أطروحة الدكتوراه المناقشة بكلية الآداب بوجدة (2023)، يدرس بين نقد النظرية ونقد التلقي، في جزأين مجلدين.",
+                            cover: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "book_9",
+                            title: "لمن كان له قلب: غير حياتك بالقرآن الكريم",
+                            year: "2024",
+                            publisher: "دار ركاز للنشر والتوزيع، الأردن",
+                            desc: "ضمن سلسلة (تكثيف الوعي وتحجيم الوهم من أجل الجيل الصاعد - رقم 1). تأملات تدبرية لإعادة صياغة العقل والسلوك بالقرآن.",
+                            cover: "https://images.unsplash.com/photo-1476275466078-4007374efbbe?auto=format&fit=crop&w=600&q=80",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "book_10",
+                            title: "رواية: قد تشرق الشمس زوالاً",
+                            year: "2024",
+                            publisher: "دار ركاز للنشر والتوزيع، الأردن",
+                            desc: "عمل روائي أدبي يجمع بين الحبكة السردية الممتعة والعمق الإنساني والتساؤلات الوجودية للمثقف العربي.",
+                            cover: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=600&q=80",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "book_11",
+                            title: "المدارس اللسانية الكبرى وأثرها في الدرس اللساني بالمغرب",
+                            year: "2022",
+                            publisher: "دار ركاز للنشر والتوزيع، الأردن",
+                            desc: "من العلوم اللغوية القديمة إلى السوسيولسانيات: رصد تاريخي وابستيمولوجي لتشكل الدرس اللساني الحديث بالمغرب وتأثره بالمدارس العالمية.",
+                            cover: "https://images.unsplash.com/photo-1463320726281-696a485928c7?auto=format&fit=crop&w=600&q=80",
+                            fileUrl: ""
+                        }
+                    ]
+                },
+                {
+                    id: "sec_group_books",
+                    title: "الكتب الجماعية",
+                    desc: "الكتب المحكمة التي أشرف الدكتور على تنسيقها أو شارك بأبحاث أصيلة فيها",
+                    icon: "bookmark",
+                    layout: "list",
+                    items: [
+                        {
+                            id: "grp_1",
+                            title: "إعادة طباعة سلسلة الكتب الجماعية ضمن سلسلة مراجعات في اللسانيات والنقد وتحليل الخطاب (1/8)",
+                            year: "2026",
+                            publisher: "عالم الكتب الحديث، الأردن",
+                            desc: "تنسيق وإشراف علمي على سلسلة مراجعات في اللسانيات والنقد وتحليل الخطاب في ثمانية أجزاء.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "grp_2",
+                            title: "كتاب: راهنية السيميائيات",
+                            year: "2025",
+                            publisher: "دار الآن ناشرون وموزعون، الأردن",
+                            desc: "تنسيق وتقديم الكتاب الجماعي الذي يضم نخبة من الباحثين في الفكر السيميائي المعاصر.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "grp_3",
+                            title: "كتاب: في البحث اللساني العربي: دراسات ومراجعات",
+                            year: "2024",
+                            publisher: "دار ركاز للنشر والتوزيع، الأردن",
+                            desc: "تنسيق وإعداد أبحاث لسانية رائدة تفحص قضايا المصطلح والنظرية اللسانية العربية.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "grp_4",
+                            title: "كتاب: فلسفة تأهيل المدرسين عند محمد بازي: أبحاث محكمة وقراءات معمقة",
+                            year: "2023",
+                            publisher: "دار فضاءات للنشر والتوزيع، الأردن",
+                            desc: "تنسيق الكتاب والمشاركة فيه ببحث: (إشكالات التربية وتكوين المدرسين في مشروع الدكتور بازي: دراسة في المرجعيات والمنطلقات).",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "grp_5",
+                            title: "كتاب: النص القرآني والعلوم اللغوية العربية: دراسات في التداخل والتكامل",
+                            year: "2023",
+                            publisher: "دار الآن ناشرون، الأردن",
+                            desc: "تنسيق علمي لكتاب محكم يدرس علائق النص القرآني بالصناعة اللغوية والنحوية والدلالية.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "grp_6",
+                            title: "كتاب: أبحاث في المنجز العلمي والبيداغوجي للدكتور محمد الدريج (404 صفحة)",
+                            year: "2023",
+                            publisher: "دار فضاءات للنشر والتوزيع، الأردن",
+                            desc: "تنسيق موسوعي محكم يرصد عطاءات الخبير التربوي الدكتور محمد الدريج في التربية والتدريس.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "grp_7",
+                            title: "كتاب: التلقي العربي للمصطلحات اللسانية والأدبية الحديثة (654 صفحة)",
+                            year: "2021",
+                            publisher: "دار النابغة، مصر",
+                            desc: "تنسيق مؤلف جماعي ضخم يبحث في إشكاليات ترجمة وتوطين المصطلحات الأدبية واللسانية الحديثة.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "grp_8",
+                            title: "مشاركة ببحث: (إشكالات تدريس الأدب في تعليمنا: دراسة نقدية في ضوء نظرية الأدب القاصد)",
+                            year: "2026",
+                            publisher: "كتاب جماعي: تدريس اللغة والأدب - دار فضاءات، الأردن",
+                            desc: "تنسيق بوجمعة وعلي وعبد الرزاق الفراوزي وآخرون.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "grp_9",
+                            title: "مشاركة ببحث: (سؤال الإنسان في التأويليات الجديدة: بحث في أطروحة البلاغة الكبرى لمحمد بازي)",
+                            year: "2026",
+                            publisher: "مجلة الدهاق، تزنيت المغرب، العدد الرابع",
+                            desc: "دراسة تأويلية معمقة لسؤال الإنسان وأبعاده الفلسفية والبلاغية.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "grp_10",
+                            title: "مشاركة ببحث: (مرجعيات البلاغة الكبرى وآفاقها: قراءة في مشروع البلاغي محمد بازّي)",
+                            year: "2025",
+                            publisher: "كتاب جماعي: البلاغة العربية: التأصيل والتجديد والترجمة - دار كنوز المعرفة",
+                            desc: "تنسيق د. سعيد العوادي ومصطفى رجوان وآخرون.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "grp_11",
+                            title: "مشاركة ببحث: (إشكالية تأثير السياسة في النحو العربي وتطوره: بحث في المنطلقات السياسية والدوافع التكسبية)",
+                            year: "2024",
+                            publisher: "كتاب جماعي: النحو العربي وأسئلة التأصيل - دار ركاز، الأردن",
+                            desc: "تنسيق مولاي أحمد رفيق الخير وعبد الفتاح شهيد.",
+                            fileUrl: ""
+                        }
+                    ]
+                },
+                {
+                    id: "sec_articles",
+                    title: "الأبحاث والمقالات",
+                    desc: "الدراسات المنشورة في المجلات الأكاديمية والمقالات بالصحافة الدولية",
+                    icon: "file-text",
+                    layout: "list",
+                    items: [
+                        {
+                            id: "art_1",
+                            title: "مصطلح التكامل المعرفي وإشكال التنازع الدلالي في الدراسات الحديثة",
+                            year: "شتنبر 2025",
+                            publisher: "دورية نماء في علوم الوحي والدراسات الإنسانية، المجلد 9، العدد 3",
+                            desc: "مراجعة نقدية لكتاب (التكامل المعرفي في الحضارة العربية الإسلامية: قضايا ونماذج تمثيلية).",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "art_2",
+                            title: "ثقافة اللسانيات ولسانيات الثقافة: اغتراب المرجعيات وإشكاليات التوطين",
+                            year: "2025",
+                            publisher: "مجلة الرقيم، دار الرقيم كربلاء، العدد 38، السنة 13",
+                            desc: "حفريات في المرجعيات التداولية والمعرفية للسانيات الغربية وإمكانات استنباتها في التربة الثقافية العربية.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "art_3",
+                            title: "جدلية النحو واللسانيات في الخطاب اللساني العربي الحديث: قضايا ونماذج",
+                            year: "شتنبر 2024",
+                            publisher: "مجلة البحث في العلوم الإنسانية والمعرفية، المجلد 1، العدد 6",
+                            desc: "دراسة ابستيمولوجية تفكك العلاقة بين التراث النحوي العربي والدرس اللساني الغربي الوافد.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "art_4",
+                            title: "مقررات الدراسات العربية في تعليمنا الجامعي بالمغرب: دراسة في ضوء أزمة التخصص",
+                            year: "2020",
+                            publisher: "مجلة الميادين في الدراسات للعلوم الإنسانية، العدد الخاص الأول",
+                            desc: "خاص بأعمال المؤتمر الدولي (مقررات اللغة العربية في التعليم الجامعي بالمغرب).",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "art_5",
+                            title: "34 مقالة رأي ودراسة فكرية وأدبية بجريدة العربي الجديد (لندن)",
+                            year: "2021 - 2026",
+                            publisher: "صحيفة العربي الجديد اليومية الدولية - شركة فضاءات ميديا (لندن)",
+                            desc: "سلسلة مقالات أسبوعية وشهرية تتناول قضايا الفكر، التعليم، اللغة، النقد الأدبي والمجتمع.",
+                            fileUrl: "https://www.alaraby.co.uk/author/24029/%D9%85%D8%B5%D8%B7%D9%81%D9%89-%D8%A7%D9%84%D8%B9%D8%A7%D8%AF%D9%84"
+                        }
+                    ]
+                },
+                {
+                    id: "sec_conferences",
+                    title: "المؤتمرات",
+                    desc: "المداخلات والأوراق البحثية المقدمة في المحافل الأكاديمية المحكمة",
+                    icon: "award",
+                    layout: "timeline",
+                    items: [
+                        {
+                            id: "conf_1",
+                            title: "مداخلة: البلاغة الوجودية في زمن الذكاء الاصطناعي: الآفاق والتحديات",
+                            year: "20 أبريل 2026",
+                            publisher: "كلية الآداب بالجديدة / مركز القاضي عياض ومختبر علوم اللغة والخطاب",
+                            desc: "الندوة الدولية: (البلاغة والذكاء الاصطناعي: حدود الإقناع وأفق التلقي).",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "conf_2",
+                            title: "مداخلة: البيداغوجية الحية واستدامة الموارد المائية والبيئية: رؤية تربوية حديثة",
+                            year: "2 ماي 2026",
+                            publisher: "الأكاديمية الحية بأيت بوكماز / جمعية الباحثين الجغرافيين ومختبر دينامية المشاهد ببني ملال",
+                            desc: "فعاليات النسخة الثامنة للأيام الهيدرولوجية.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "conf_3",
+                            title: "بحث: الجهود اللسانية لعبد القادر الفاسي الفهري: من اللسانيات إلى ابستيمولوجيا اللسانيات",
+                            year: "18 دجنبر 2025",
+                            publisher: "كلية اللغة العربية بمراكش / مختبر تكامل المناهج في تحليل الخطاب",
+                            desc: "الندوة الدولية التكريمية لفضيلة الدكتور عبد القادر الفاسي الفهري.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "conf_4",
+                            title: "بحث: ابستيمولوجيا الخطاب النحوي: من التحليل النحوي إلى تحليل التحليل النحوي",
+                            year: "4 نونبر 2025",
+                            publisher: "كلية اللغة العربية بمراكش / مختبر تكامل المناهج في تحليل الخطاب",
+                            desc: "الندوة الدولية: (التحليل النحوي للخطاب).",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "conf_5",
+                            title: "بحث: ثقافة اللسانيات ولسانيات الثقافة بين اغتراب المرجعيات وإشكالات التوطين: حفريات في لسانيات تشومسكي",
+                            year: "31 ماي - 1 يونيو 2024",
+                            publisher: "الكلية المتعددة التخصصات بخريبكة",
+                            desc: "الندوة الوطنية الأولى: (مرايا الثقافة: الإعلام واللغة والأدب: جدل الحضور وإرهاصات البناء).",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "conf_6",
+                            title: "بحث: الأسئلة الموجهة للتفكير البلاغي والتربوي عند الدكتور محمد بازي",
+                            year: "2-3 ماي 2023",
+                            publisher: "المركز الجهوي لمهن التربية والتكوين سوس-ماسة، شتوكة أيت باها",
+                            desc: "الملتقى الوطني للباحثين في قضايا البلاغة وتحليل الخطاب: (التأويليات الجديدة ومناهج تدريس اللغة والأدب).",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "conf_7",
+                            title: "بحث: جهود ربيعة العربي في الكتابة النسائية بالمغرب: بحث في اللسانيات والترجمة",
+                            year: "8 مارس 2023",
+                            publisher: "المركز الجهوي لمهن التربية والتكوين مراكش آسفي وكلية اللغة العربية",
+                            desc: "الندوة الوطنية: (المرأة المغربية والترجمة).",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "conf_8",
+                            title: "بحث: نحو اللغة العربية بين النحو الخاص والكلي والنحو التوليفي: أقسام الكلم نموذجا",
+                            year: "7-8 دجنبر 2022",
+                            publisher: "كلية الآداب بني ملال / مختبر الدراسات الأدبية واللسانية والديداكتيكية",
+                            desc: "الندوة الوطنية لطلبة الدكتوراه: (قضايا اللسانيات العربية المقارنة).",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "conf_9",
+                            title: "بحث: إشكالات التعريف والحدود بين التربويات واللسانيات: دراسة بينية في المشروع التربوي لمحمد الدريج",
+                            year: "29 ماي 2022",
+                            publisher: "المركز الجهوي لمهن التربية والتكوين ببني ملال والفقيه بن صالح",
+                            desc: "الندوة الدولية: (المنجز العلمي والبيداغوجي للخبير التربوي الدكتور محمد الدريج).",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "conf_10",
+                            title: "بحث: من التكامل بين علم اللغة وباقي العلوم إلى التكامل بين علوم اللغة فيما بينها",
+                            year: "23-24 أكتوبر 2020",
+                            publisher: "الكلية المتعددة التخصصات بالرشيدية / مختبر الخطاب وتكامل المعارف",
+                            desc: "المؤتمر الدولي: (سؤال التكامل المعرفي في معالجة قضايا اللغة العربية).",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "conf_11",
+                            title: "بحث: أزمة التخصص وأثرها على تعلم وتعليم اللسان العربي",
+                            year: "11-12 دجنبر 2019",
+                            publisher: "كلية الآداب، جامعة مولاي إسماعيل بمكناس",
+                            desc: "المؤتمر الدولي: (اللغة العربية وتحديات العصر).",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "conf_12",
+                            title: "بحث: علم الصناعة القاموسية: دراسة في المفهوم والأهداف",
+                            year: "23-24 أبريل 2019",
+                            publisher: "كلية اللغة العربية بمراكش / بنية البحث في اللسانيات وتحليل الخطاب",
+                            desc: "الملتقى الدولي الثاني للطلبة الباحثين في اللسانيات وتحليل الخطاب.",
+                            fileUrl: ""
+                        }
+                    ]
+                },
+                {
+                    id: "sec_degrees",
+                    title: "المؤهلات",
+                    desc: "المسار الجامعي والدبلومات التخصصية والأكاديمية",
+                    icon: "graduation-cap",
+                    layout: "timeline",
+                    items: [
+                        {
+                            id: "deg_1",
+                            title: "دكتوراه في اللسانيات العربية",
+                            year: "2023",
+                            publisher: "كلية الآداب والعلوم الإنسانية، جامعة محمد الأول بوجدة",
+                            desc: "في موضوع: (النقد اللساني في الثقافة العربية بين نقد النظرية ونقد التلقي) - ميزة مشرف جداً مع التوصية بالطبع.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "deg_2",
+                            title: "دبلوم العلوم الإسلامية - معمق",
+                            year: "2023",
+                            publisher: "أكاديمية نماء للعلوم الإسلامية والإنسانية",
+                            desc: "برنامج دراسي وبحثي معمق في العلوم الشرعية والمنهجية الفكرية.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "deg_3",
+                            title: "بكالوريوس مهنية في ديداكتيك اللغة العربية",
+                            year: "2019",
+                            publisher: "كلية الآداب، جامعة السلطان مولاي سليمان ببني ملال",
+                            desc: "تخصص في طرائق تدريس اللغة العربية وعلوم التربية والمناهج التعليمية.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "deg_4",
+                            title: "دبلوم اللغة والاتصال والترجمة",
+                            year: "2019",
+                            publisher: "أكاديمية نماء للعلوم الإسلامية والإنسانية",
+                            desc: "تكوين تخصصي في أصول الاتصال اللغوي ومهارات الترجمة والتحرير.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "deg_5",
+                            title: "ماستر الدراسات اللغوية",
+                            year: "2018",
+                            publisher: "كلية الآداب والعلوم الإنسانية، جامعة محمد الأول بوجدة",
+                            desc: "دراسات معمقة في اللسانيات الحديثة وتحليل الخطاب والنحو العربي.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "deg_6",
+                            title: "بكالوريوس أساسية في اللسانيات",
+                            year: "2016",
+                            publisher: "كلية الآداب والعلوم الإنسانية، جامعة السلطان مولاي سليمان بني ملال",
+                            desc: "الإجازة في الدراسات العربية مسلك اللسانيات العامة والتطبيقية.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "deg_7",
+                            title: "دبلوم الدراسات الجامعية العليا في الدراسات العربية",
+                            year: "2014",
+                            publisher: "كلية الآداب والعلوم الإنسانية، جامعة السلطان مولاي سليمان بني ملال",
+                            desc: "دبلوم الدراسات الجامعية العامة (DEUG).",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "deg_8",
+                            title: "شهادة البكالوريا في الآداب والعلوم الإنسانية",
+                            year: "2012",
+                            publisher: "ثانوية المسيرة التأهيلية، أزيلال",
+                            desc: "شعبة الآداب والعلوم الإنسانية.",
+                            fileUrl: ""
+                        }
+                    ]
+                },
+                {
+                    id: "sec_teaching",
+                    title: "الخبرات والتدريس",
+                    desc: "المسار المهني في التدريس بالتعليم العالي والخصوصي والتأطير الأكاديمي",
+                    icon: "briefcase",
+                    layout: "timeline",
+                    items: [
+                        {
+                            id: "teach_1",
+                            title: "التدريس بمادة اللغة العربية",
+                            year: "2026 - 2027",
+                            publisher: "إعدادية إلبيليا للتعليم الخصوصي بمدينة خريبكة",
+                            desc: "تدريس مناهج اللغة العربية والأنشطة الداعمة.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "teach_2",
+                            title: "تدريس مادة اللغة العربية لستة مواسم دراسية متتالية",
+                            year: "2020 - 2026",
+                            publisher: "المؤسسة الحية للتعليم الخصوصي بأيت بوكماز، أزيلال",
+                            desc: "الإشراف التربوي وتدريس مستويات متعددة وإعداد الأنشطة الثقافية والمشاريع المدرسية.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "teach_3",
+                            title: "تأطير بحوث التخرج لطلبة البكالوريوس في مادة النحو",
+                            year: "2024 - 2025",
+                            publisher: "كلية اللغة العربية بمراكش، جامعة القاضي عياض",
+                            desc: "إشراف وتوجيه منهجي لطلبة السنة الختامية في إعداد بحوث الإجازة في النحو واللسانيات.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "teach_4",
+                            title: "تدريس جامعي عن بعد لمواد: (قضايا نحوية وصرفية، مدخل إلى السيمياء، مدخل إلى اللسانيات، قضايا لغوية)",
+                            year: "2024 - 2025",
+                            publisher: "المركز الإقليمي الأول للجامعة الأمريكية المفتوحة",
+                            desc: "تدريس طلبة التعليم العالي والبكالوريوس والدراسات العليا عبر المنصات الرقمية التفاعلية.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "teach_5",
+                            title: "تدريس 150 ساعة ضمن التداريب الميدانية المهنية",
+                            year: "2019 - 2020",
+                            publisher: "إعدادية القدس، وثانوية ابن سينا، وثانوية الزرقطوني ببني ملال",
+                            desc: "ممارسات صفية وتداريب بيداغوجية تطبيقية ضمن سلك بكالوريوس ديداكتيك اللغة العربية.",
+                            fileUrl: ""
+                        }
+                    ]
+                },
+                {
+                    id: "sec_editorial",
+                    title: "النشر والتصميم",
+                    desc: "المسؤوليات في المجلات العلمية ودور النشر وصناعة الكتاب العربي",
+                    icon: "palette",
+                    layout: "grid",
+                    items: [
+                        {
+                            id: "edit_1",
+                            title: "مصمم أغلفة وخبير تصفيف الكتب وإعدادها للطباعة",
+                            year: "منذ 2024",
+                            publisher: "مؤسسة الموجة الثقافية للنشر والتوزيع، المغرب",
+                            desc: "إخراج فني، تصميم الأغلفة الأكاديمية والفكرية، وضبط الصفحات ومعايير المطابع.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "edit_2",
+                            title: "مصمم أغلفة وخبير تصفيف الكتب وإعدادها للطباعة",
+                            year: "منذ 2021",
+                            publisher: "دار ركاز للنشر والتوزيع، الأردن",
+                            desc: "تصميم عشرات الأغلفة للكتب الفكرية واللسانية والإسلامية وتجهيز النسخ الطباعية.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "edit_3",
+                            title: "عضو هيئة التحرير لمجلة ابن منظور لعلوم اللغة العربية",
+                            year: "منذ 2023",
+                            publisher: "الجمعية الليبية الدولية لعلوم اللغة العربية - ليبيا",
+                            desc: "مراجعة وتحكيم الأبحاث والدراسات اللغوية واللسانية المقدمة للنشر.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "edit_4",
+                            title: "مدقق لغوي بمجلة دراسات بيت المقدس",
+                            year: "منذ 2023",
+                            publisher: "أنقرة - تركيا",
+                            desc: "المراجعة والضبط اللغوي للأبحاث المحكمة بالدورية.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "edit_5",
+                            title: "عضو اللجنة العلمية بالمؤتمر الدولي الافتراضي لدراسات اللغة العربية",
+                            year: "يوليو 2021",
+                            publisher: "جامعة أنقرة ومراكز أبحاث عربية وتركية مشتركة",
+                            desc: "مشاريع طلاب الدراسات العليا وبرامج التبادل الطلابي بين الجامعات العربية والتركية.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "edit_6",
+                            title: "خبرة واسعة في التواصل مع دور النشر والمراكز العلمية العربية",
+                            year: "مستمر",
+                            publisher: "المغرب، الأردن، مصر، تركيا، الجزائر",
+                            desc: "تنسيق العقود والمشاريع المشتركة والإشراف على إصدار السلاسل الفكرية المحكمة.",
+                            fileUrl: ""
+                        }
+                    ]
+                },
+                {
+                    id: "sec_skills_meta",
+                    title: "المهارات واللغات",
+                    desc: "القدرات التقنية الموازية، اللغات الأجنبية والاهتمامات الشخصية",
+                    icon: "user",
+                    layout: "grid",
+                    items: [
+                        {
+                            id: "sk_1",
+                            title: "تصميم الملصقات والأغلفة والصف الطباعي المتقدم",
+                            year: "خبرة عملية",
+                            publisher: "دار ركاز ومؤسسة الموجة",
+                            desc: "احتراف برامج التصميم والإخراج المكتبي، وتنسيق الخطوط العربية التقليدية والحديثة وضبط الهوامش والمسارد.",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "sk_2",
+                            title: "إدارة ونشر المواقع والمدونات الرقمية ومنصات التحاضر",
+                            year: "مستمر",
+                            publisher: "مركز الاقتحام (musadl99.blogspot.com)",
+                            desc: "إدارة منصات البث الرقمي والتدريس عن بعد (Zoom, Teams, Google Meet) وإدارة المحتوى الأكاديمي الرقمي.",
+                            fileUrl: "https://musadl99.blogspot.com/"
+                        },
+                        {
+                            id: "sk_3",
+                            title: "اللغات الأجنبية والتكوينات اللغوية",
+                            year: "شهادات معتمدة",
+                            publisher: "الأكاديمية الحية، كلية الآداب بوجدة، منصة إدراك",
+                            desc: "• اللغة الإنجليزية: شهادة 40 ساعة (الأكاديمية الحية 2024) + شهادة المستوى الأول 20 ساعة (جامعة وجدة 2019).\n• اللغة الفرنسية: شهادات مساقات أساسيات اللغة الفرنسية 1 و 3 عبر منصة إدراك (2021).",
+                            fileUrl: ""
+                        },
+                        {
+                            id: "sk_4",
+                            title: "الهوايات والاهتمامات الحرة",
+                            year: "دائم",
+                            publisher: "شخصي",
+                            desc: "• القراءة والمطالعة المعمقة في الفلسفة واللسانيات والتراث العربي.\n• الكتابة الإبداعية والبحثية.\n• رياضة كرة المضرب.\n• الصحافة والإعلام الثقافي.",
+                            fileUrl: ""
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // State variables
+        let appData = null;
+        let isEditMode = false;
+        let currentSectionId = null;
+
+        // Load data from LocalStorage or initialize default
+        function initApp() {
+            try {
+                const stored = localStorage.getItem(STORAGE_KEY);
+                if (stored) {
+                    appData = JSON.parse(stored);
+                } else {
+                    appData = JSON.parse(JSON.stringify(defaultData));
+                    saveToStorage();
+                }
+            } catch (e) {
+                console.error("Storage error:", e);
+                appData = JSON.parse(JSON.stringify(defaultData));
+            }
+
+            // Check Theme
+            const isDark = localStorage.getItem(THEME_KEY) === 'true';
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+            }
+
+            // Sync Profile Photo
+            if (appData.profile && appData.profile.avatar) {
+                const img = document.getElementById('profileImage');
+                if (img) img.src = appData.profile.avatar;
+            }
+
+            // Check Edit Mode
+            isEditMode = localStorage.getItem(EDIT_MODE_KEY) === 'true';
+            applyEditModeState();
+
+            // Migration: Ensure sec_home is first and titles are concise
+            if (appData.sections) {
+                if (!appData.sections.some(s => s.id === 'sec_home')) {
+                    appData.sections.unshift({
+                        id: "sec_home",
+                        title: "الرئيسية",
+                        desc: "مدخل جامع إلى المشروع العلمي والفكري والمسيرة الأكاديمية للدكتور مصطفى العادل",
+                        icon: "home",
+                        layout: "home",
+                        items: []
+                    });
+                }
+                const titleMap = {
+                    'sec_home': 'الرئيسية',
+                    'sec_books': 'الكتب الفردية',
+                    'sec_group_books': 'الكتب الجماعية',
+                    'sec_articles': 'الأبحاث والمقالات',
+                    'sec_conferences': 'المؤتمرات',
+                    'sec_degrees': 'المؤهلات',
+                    'sec_teaching': 'الخبرات والتدريس',
+                    'sec_editorial': 'النشر والتصميم',
+                    'sec_skills_meta': 'المهارات واللغات'
+                };
+                appData.sections.forEach(s => {
+                    if (titleMap[s.id]) s.title = titleMap[s.id];
+                });
+                saveToStorage();
+            }
+
+            // Always open with Home page on initial load
+            if (!currentSectionId || currentSectionId === 'sec_books') {
+                currentSectionId = 'sec_home';
+            }
+
+            // Render navigation & selected section
+            renderTopSectionsNav();
+            renderSelectedSection();
+            updateStats();
+
+            // Initialize Lucide icons
+            lucide.createIcons();
+
+            // Set current year
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        }
+
+        // Save current appData to LocalStorage
+        function saveToStorage() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
+        }
+
+        // Toggle Dark Mode
+        function toggleDarkMode() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem(THEME_KEY, isDark);
+            lucide.createIcons();
+        }
+
+        // Toggle Edit Mode
+        function toggleEditMode() {
+            isEditMode = !isEditMode;
+            localStorage.setItem(EDIT_MODE_KEY, isEditMode);
+            applyEditModeState();
+            renderTopSectionsNav();
+            renderSelectedSection();
+            lucide.createIcons();
+        }
+
+        function applyEditModeState() {
+            const editElements = document.querySelectorAll('.edit-control');
+            const notice = document.getElementById('editModeNotice');
+            const btnText = document.getElementById('adminModeText');
+            const btn = document.getElementById('adminModeBtn');
+
+            if (isEditMode) {
+                notice.classList.remove('hidden');
+                editElements.forEach(el => el.classList.remove('hidden'));
+                btnText.textContent = "إنهاء التحرير";
+                btn.classList.add('bg-amber-100', 'text-amber-800', 'dark:bg-amber-950', 'dark:text-amber-300');
+            } else {
+                notice.classList.add('hidden');
+                editElements.forEach(el => el.classList.add('hidden'));
+                btnText.textContent = "تفعيل وضع التحرير";
+                btn.classList.remove('bg-amber-100', 'text-amber-800', 'dark:bg-amber-950', 'dark:text-amber-300');
+            }
+        }
+
+        // Render Top Main Sections Bar (All sections in a single, sticky row)
+        function renderTopSectionsNav() {
+            const nav = document.getElementById('topSectionsNav');
+            if (!nav) return;
+
+            if (!currentSectionId && appData.sections && appData.sections.length > 0) {
+                currentSectionId = appData.sections[0].id;
+            }
+
+            let html = `
+                <div class="flex items-center gap-1 sm:gap-1.5 overflow-x-auto py-1 scrollbar-none flex-1">
+            `;
+
+            html += appData.sections.map(sec => {
+                const isActive = sec.id === currentSectionId;
+                const itemCount = sec.items ? sec.items.length : 0;
+                return `
+                    <button onclick="selectSection('${sec.id}')" 
+                        class="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl text-[11px] sm:text-xs font-semibold whitespace-nowrap transition-all duration-200 border font-kufi ${
+                            isActive 
+                            ? 'bg-emerald-700 text-white border-emerald-600 shadow-md shadow-emerald-700/25 ring-2 ring-emerald-500/30' 
+                            : 'bg-white dark:bg-slate-800/80 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-400'
+                        }">
+                        <i data-lucide="${sec.icon || 'folder'}" class="w-3.5 h-3.5 ${isActive ? 'text-amber-300' : 'text-emerald-600 dark:text-emerald-400'}"></i>
+                        <span>${sec.title}</span>
+                        ${sec.layout !== 'home' ? `<span class="text-[9px] px-1.5 py-0.2 rounded-full font-sans ${isActive ? 'bg-emerald-800 text-emerald-100' : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400'}">${itemCount}</span>` : ''}
+                    </button>
+                `;
+            }).join('');
+
+            html += `</div>`;
+
+            // If Edit Mode is active, add "+ قسم جديد" button in the top bar
+            if (isEditMode) {
+                html += `
+                    <button onclick="openAddSectionModal()" class="shrink-0 flex items-center gap-1 px-2.5 py-1.5 bg-amber-600 hover:bg-amber-700 text-white rounded-xl text-xs font-semibold shadow-sm transition-all mr-2 font-kufi">
+                        <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
+                        <span class="hidden sm:inline">قسم جديد</span>
+                    </button>
+                `;
+            }
+
+            nav.innerHTML = html;
+            lucide.createIcons();
+        }
+
+        // Switch to the selected section and display ONLY that section
+        function selectSection(secId) {
+            currentSectionId = secId;
+            renderTopSectionsNav();
+            renderSelectedSection();
+
+            // Smooth scroll to the content area
+            const content = document.getElementById('mainContent');
+            if (content) {
+                const topPos = content.getBoundingClientRect().top + window.pageYOffset - 130;
+                window.scrollTo({ top: Math.max(0, topPos), behavior: 'smooth' });
+            }
+        }
+
+        // Render ONLY the single selected section (no duplication, no repeating)
+        function renderSelectedSection() {
+            const container = document.getElementById('sectionsContainer');
+            if (!container) return;
+
+            if (!appData.sections || appData.sections.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-16 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-8">
+                        <i data-lucide="folder-x" class="w-12 h-12 text-slate-300 mx-auto mb-3"></i>
+                        <p class="text-slate-500 text-sm">لا توجد أقسام مسجلة حالياً.</p>
+                        ${isEditMode ? '<button onclick="openAddSectionModal()" class="mt-4 px-4 py-2 bg-emerald-600 text-white rounded-lg text-xs font-semibold">إضافة قسم جديد</button>' : ''}
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
+            const section = appData.sections.find(s => s.id === currentSectionId) || appData.sections[0];
+            currentSectionId = section.id;
+            const isHome = section.id === 'sec_home';
+
+            container.innerHTML = `
+                <section id="${section.id}" class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm p-6 sm:p-8 relative transition-all">
+                    ${isHome ? '' : `
+                    <!-- Section Header -->
+                    <div class="flex items-start justify-between pb-5 border-b border-slate-100 dark:border-slate-800/80 mb-6 gap-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-emerald-100 to-emerald-50 dark:from-emerald-950 dark:to-emerald-900/60 border border-emerald-200 dark:border-emerald-800 flex items-center justify-center text-emerald-700 dark:text-emerald-300 shadow-sm">
+                                <i data-lucide="${section.icon || 'book-open'}" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <h2 class="text-xl sm:text-2xl font-black font-kufi text-slate-900 dark:text-white">
+                                        ${section.title}
+                                    </h2>
+                                    <span class="text-xs bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 px-2 py-0.5 rounded-full font-bold border border-emerald-100 dark:border-emerald-800 font-sans">
+                                        ${section.items ? section.items.length : 0} عنصر
+                                    </span>
+                                </div>
+                                ${section.desc ? `<p class="text-xs text-slate-500 dark:text-slate-400 mt-1 font-academic">${section.desc}</p>` : ''}
+                            </div>
+                        </div>
+
+                        <!-- Section Controls (Edit Mode) -->
+                        <div class="flex items-center gap-1.5 ${isEditMode ? '' : 'hidden'} edit-control no-print">
+                            <button onclick="openAddItemModal('${section.id}')" title="إضافة عنصر لهذا القسم" class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold shadow-sm transition-colors font-kufi">
+                                <i data-lucide="plus" class="w-3.5 h-3.5"></i> إضافة عنصر
+                            </button>
+                            <button onclick="editSection('${section.id}')" title="تعديل هذا القسم" class="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-600 dark:text-slate-300 transition-colors">
+                                <i data-lucide="settings-2" class="w-4 h-4"></i>
+                            </button>
+                            <button onclick="deleteSection('${section.id}')" title="حذف هذا القسم بالكامل" class="p-1.5 rounded-lg bg-red-50 dark:bg-red-950/40 hover:bg-red-100 text-red-600 dark:text-red-400 transition-colors">
+                                <i data-lucide="trash-2" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                    `}
+
+                    <!-- Items Content according to Section Layout -->
+                    <div class="section-content">
+                        ${renderSectionItems(section)}
+                    </div>
+                </section>
+            `;
+
+            applyEditModeState();
+            lucide.createIcons();
+        }
+
+        // Render Home Dashboard Overview (الصفحة الرئيسية للمنصة)
+        function renderHomeDashboard() {
+            return `
+            <div class="space-y-8">
+                <!-- Academic Vision & Manifesto Card -->
+                <div class="relative overflow-hidden bg-gradient-to-br from-emerald-950 via-emerald-900 to-slate-900 text-white rounded-2xl p-6 sm:p-8 border border-amber-500/30 shadow-xl">
+                    <!-- Calligraphic letters watermark -->
+                    <div class="absolute -left-6 -bottom-6 text-9xl font-ruqaa text-white/[0.04] pointer-events-none select-none">ض</div>
+                    <div class="absolute top-2 left-1/3 text-7xl font-ruqaa text-amber-300/[0.05] pointer-events-none select-none">لسان</div>
+
+                    <div class="relative z-10">
+                        <div class="inline-flex items-center gap-2 bg-amber-500/20 text-amber-300 text-xs px-3 py-1 rounded-full border border-amber-400/30 mb-3 font-kufi">
+                            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                            <span>بيان المشروع العلمي والفكري</span>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold font-ruqaa text-amber-100 mb-3 leading-snug">
+                            في رِحاب اللسانيات العربية وبلاغة المعنى ونقد التلقي
+                        </h3>
+                        <p class="text-xs sm:text-sm text-emerald-100/90 leading-relaxed font-academic max-w-4xl text-justify mb-6">
+                            ينطلق هذا المشروع العلمي من الإيمان الراسخ بفرادة اللسان العربي وطاقاته التوليدية، ساعياً إلى تجاوز اغتراب المرجعيات وإشكالات توطين النظريات اللسانية الوافدة، عبر تأسيس نقد لساني عربي رصين يوازن بين حفريات التراث النحوي والبلاغي ومستجدات التأويليات وتحليل الخطاب، متكاملاً مع مشروع تأليفي وتربوي يروم تكثيف الوعي وتحجيم الوهم لدى الجيل الصاعد.
+                        </p>
+
+                        <div class="flex flex-wrap items-center gap-2.5">
+                            <button onclick="selectSection('sec_books')" class="px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs flex items-center gap-2 shadow-md transition-all font-kufi">
+                                <i data-lucide="book-open" class="w-4 h-4"></i> استكشاف المؤلفات والكتب
+                            </button>
+                            <button onclick="selectSection('sec_articles')" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold flex items-center gap-2 border border-white/20 transition-all font-kufi">
+                                <i data-lucide="file-text" class="w-4 h-4"></i> الأبحاث والمقالات
+                            </button>
+                            <button onclick="selectSection('sec_degrees')" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold flex items-center gap-2 border border-white/20 transition-all font-kufi">
+                                <i data-lucide="graduation-cap" class="w-4 h-4"></i> المسار الأكاديمي
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4 Core Pillars Grid -->
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="text-base sm:text-lg font-bold font-kufi text-slate-900 dark:text-white flex items-center gap-2">
+                            <i data-lucide="compass" class="w-4 h-4 text-emerald-600 dark:text-emerald-400"></i>
+                            محاور المشروع العلمي الأربعة
+                        </h4>
+                        <span class="text-xs text-slate-400 font-academic">رؤية لسانية وبلاغية متكاملة</span>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div onclick="selectSection('sec_books')" class="bg-slate-50 dark:bg-slate-800/50 hover:bg-emerald-50/60 dark:hover:bg-emerald-950/40 p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-emerald-400 transition-all cursor-pointer group">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                <i data-lucide="book" class="w-5 h-5"></i>
+                            </div>
+                            <h5 class="font-bold text-sm text-slate-900 dark:text-white font-kufi mb-1">اللسانيات ونقد التلقي</h5>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-academic">أطروحة الدكتوراه في جزأين، حفريات في لسانيات تشومسكي ومراجعات النقد اللساني العربي.</p>
+                        </div>
+
+                        <div onclick="selectSection('sec_books')" class="bg-slate-50 dark:bg-slate-800/50 hover:bg-emerald-50/60 dark:hover:bg-emerald-950/40 p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-emerald-400 transition-all cursor-pointer group">
+                            <div class="w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                <i data-lucide="feather" class="w-5 h-5"></i>
+                            </div>
+                            <h5 class="font-bold text-sm text-slate-900 dark:text-white font-kufi mb-1">البلاغة والتأويليات</h5>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-academic">أطروحة البلاغة الوجودية، فلسفة القصدية وبناء النموذج المعرفي عند د. محمد بازي.</p>
+                        </div>
+
+                        <div onclick="selectSection('sec_books')" class="bg-slate-50 dark:bg-slate-800/50 hover:bg-emerald-50/60 dark:hover:bg-emerald-950/40 p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-emerald-400 transition-all cursor-pointer group">
+                            <div class="w-10 h-10 rounded-lg bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                <i data-lucide="sun" class="w-5 h-5"></i>
+                            </div>
+                            <h5 class="font-bold text-sm text-slate-900 dark:text-white font-kufi mb-1">تكثيف الوعي للجيل</h5>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-academic">سلسلة فكرية وتربوية من 4 أجزاء تجمع بين تدبر القرآن الكريم وتزكية العقل وبناء الإرادة.</p>
+                        </div>
+
+                        <div onclick="selectSection('sec_editorial')" class="bg-slate-50 dark:bg-slate-800/50 hover:bg-emerald-50/60 dark:hover:bg-emerald-950/40 p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-emerald-400 transition-all cursor-pointer group">
+                            <div class="w-10 h-10 rounded-lg bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                <i data-lucide="palette" class="w-5 h-5"></i>
+                            </div>
+                            <h5 class="font-bold text-sm text-slate-900 dark:text-white font-kufi mb-1">صناعة وتصميم الكتاب</h5>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-academic">خبرة احترافية في تصميم الأغلفة والصف الطباعي لدى دار ركاز بالأردن ومؤسسة الموجة بالمغرب.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Works Highlights -->
+                <div class="border-t border-slate-100 dark:border-slate-800 pt-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h4 class="text-base sm:text-lg font-bold font-kufi text-slate-900 dark:text-white">إصدارات مختارة (2024 - 2026)</h4>
+                            <p class="text-xs text-slate-400 font-academic">نماذج من الإنتاج العلمي والتأليفي الصادر حديثاً</p>
+                        </div>
+                        <button onclick="selectSection('sec_books')" class="text-xs text-emerald-700 dark:text-emerald-400 font-bold hover:underline flex items-center gap-1 font-kufi">
+                            <span>معاينة كل الكتب (11)</span>
+                            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div onclick="selectSection('sec_books')" class="p-3.5 bg-slate-50 dark:bg-slate-800/40 rounded-xl border border-slate-200/80 dark:border-slate-800 flex items-center gap-3 cursor-pointer hover:border-emerald-400 transition-colors">
+                            <span class="px-2 py-1 rounded bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 font-bold text-xs">2026</span>
+                            <div>
+                                <h6 class="font-bold font-academic text-xs sm:text-sm text-slate-900 dark:text-white line-clamp-1">البوصلة المعطلة والآخر المربك</h6>
+                                <span class="text-[11px] text-slate-400">عالم الكتب الحديث - الأردن</span>
+                            </div>
+                        </div>
+                        <div onclick="selectSection('sec_books')" class="p-3.5 bg-slate-50 dark:bg-slate-800/40 rounded-xl border border-slate-200/80 dark:border-slate-800 flex items-center gap-3 cursor-pointer hover:border-emerald-400 transition-colors">
+                            <span class="px-2 py-1 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 font-bold text-xs">2026</span>
+                            <div>
+                                <h6 class="font-bold font-academic text-xs sm:text-sm text-slate-900 dark:text-white line-clamp-1">الخطاب النقدي المسدد: فلسفة القصدية</h6>
+                                <span class="text-[11px] text-slate-400">عالم الكتب الحديث - الأردن</span>
+                            </div>
+                        </div>
+                        <div onclick="selectSection('sec_books')" class="p-3.5 bg-slate-50 dark:bg-slate-800/40 rounded-xl border border-slate-200/80 dark:border-slate-800 flex items-center gap-3 cursor-pointer hover:border-emerald-400 transition-colors">
+                            <span class="px-2 py-1 rounded bg-sky-100 dark:bg-sky-950 text-sky-800 dark:text-sky-300 font-bold text-xs">2024</span>
+                            <div>
+                                <h6 class="font-bold font-academic text-xs sm:text-sm text-slate-900 dark:text-white line-clamp-1">النقد اللساني في الثقافة العربية</h6>
+                                <span class="text-[11px] text-slate-400">دار ركاز (في جزأين)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Directory -->
+                <div class="border-t border-slate-100 dark:border-slate-800 pt-6">
+                    <h4 class="text-base font-bold font-kufi text-slate-900 dark:text-white mb-3">دليل تصفح المنصة الأكاديمية</h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                        <button onclick="selectSection('sec_books')" class="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-emerald-700 hover:text-white transition-all text-xs font-semibold flex items-center gap-2 font-kufi">
+                            <i data-lucide="book-open" class="w-4 h-4 text-emerald-600"></i> الكتب الفردية
+                        </button>
+                        <button onclick="selectSection('sec_group_books')" class="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-emerald-700 hover:text-white transition-all text-xs font-semibold flex items-center gap-2 font-kufi">
+                            <i data-lucide="bookmark" class="w-4 h-4 text-emerald-600"></i> الكتب الجماعية
+                        </button>
+                        <button onclick="selectSection('sec_articles')" class="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-emerald-700 hover:text-white transition-all text-xs font-semibold flex items-center gap-2 font-kufi">
+                            <i data-lucide="file-text" class="w-4 h-4 text-emerald-600"></i> الأبحاث والمقالات
+                        </button>
+                        <button onclick="selectSection('sec_conferences')" class="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-emerald-700 hover:text-white transition-all text-xs font-semibold flex items-center gap-2 font-kufi">
+                            <i data-lucide="award" class="w-4 h-4 text-emerald-600"></i> المؤتمرات والندوات
+                        </button>
+                        <button onclick="selectSection('sec_degrees')" class="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-emerald-700 hover:text-white transition-all text-xs font-semibold flex items-center gap-2 font-kufi">
+                            <i data-lucide="graduation-cap" class="w-4 h-4 text-emerald-600"></i> المؤهلات الأكاديمية
+                        </button>
+                        <button onclick="selectSection('sec_teaching')" class="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-emerald-700 hover:text-white transition-all text-xs font-semibold flex items-center gap-2 font-kufi">
+                            <i data-lucide="briefcase" class="w-4 h-4 text-emerald-600"></i> الخبرات والتدريس
+                        </button>
+                        <button onclick="selectSection('sec_editorial')" class="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-emerald-700 hover:text-white transition-all text-xs font-semibold flex items-center gap-2 font-kufi">
+                            <i data-lucide="palette" class="w-4 h-4 text-emerald-600"></i> النشر والتصميم
+                        </button>
+                        <button onclick="selectSection('sec_skills_meta')" class="p-2.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-emerald-700 hover:text-white transition-all text-xs font-semibold flex items-center gap-2 font-kufi">
+                            <i data-lucide="user" class="w-4 h-4 text-emerald-600"></i> المهارات واللغات
+                        </button>
+                    </div>
+                </div>
+            </div>
+            `;
+        }
+
+        // Render Items inside a section based on its layout
+        function renderSectionItems(section) {
+            // Layout: Home Dashboard (المشروع العلمي والمدخل الجامع)
+            if (section.layout === 'home' || section.id === 'sec_home') {
+                return renderHomeDashboard();
+            }
+
+            if (!section.items || section.items.length === 0) {
+                return `
+                    <div class="text-center py-8 text-slate-400 text-xs font-academic">
+                        لا توجد عناصر في هذا القسم بعد.
+                        ${isEditMode ? `<br><button onclick="openAddItemModal('${section.id}')" class="mt-2 text-emerald-600 hover:underline">اضغط هنا لإضافة أول عنصر</button>` : ''}
+                    </div>
+                `;
+            }
+
+            // Layout 1: Cards (Book Covers Grid with 3D Effect)
+            if (section.layout === 'cards') {
+                return `
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    ${section.items.map(item => `
+                        <div class="book-card bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 border border-slate-200/70 dark:border-slate-800 flex flex-col justify-between group relative">
+                            <!-- Edit Item Controls -->
+                            <div class="absolute top-2 left-2 z-20 flex gap-1 ${isEditMode ? '' : 'hidden'} edit-control no-print">
+                                <button onclick="editItem('${section.id}', '${item.id}')" class="p-1.5 bg-white/90 dark:bg-slate-800 rounded-md shadow text-slate-700 dark:text-slate-200 hover:text-emerald-600">
+                                    <i data-lucide="edit-2" class="w-3.5 h-3.5"></i>
+                                </button>
+                                <button onclick="deleteItem('${section.id}', '${item.id}')" class="p-1.5 bg-white/90 dark:bg-slate-800 rounded-md shadow text-red-500 hover:text-red-700">
+                                    <i data-lucide="trash" class="w-3.5 h-3.5"></i>
+                                </button>
+                            </div>
+
+                            <div>
+                                <!-- Book Cover -->
+                                <div onclick="openItemDetails('${section.id}', '${item.id}')" class="w-full aspect-[2/3] rounded-lg overflow-hidden mb-3.5 book-cover-effect bg-slate-200 dark:bg-slate-700 cursor-pointer flex items-center justify-center relative">
+                                    ${item.cover ? `
+                                        <img src="${item.cover}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                    ` : `
+                                        <div class="p-4 text-center">
+                                            <i data-lucide="book" class="w-10 h-10 text-emerald-600 mx-auto mb-2 opacity-60"></i>
+                                            <span class="text-[11px] font-bold text-slate-600 dark:text-slate-300 font-academic line-clamp-3">${item.title}</span>
+                                        </div>
+                                    `}
+                                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                                        <span class="opacity-0 group-hover:opacity-100 bg-white/90 dark:bg-slate-900/90 text-emerald-700 dark:text-emerald-400 text-xs font-semibold px-2.5 py-1 rounded-full shadow transition-opacity">معاينة التفاصيل</span>
+                                    </div>
+                                </div>
+
+                                <!-- Year & Meta -->
+                                <div class="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 mb-1.5">
+                                    <span class="font-bold text-emerald-700 dark:text-emerald-400">${item.year || '—'}</span>
+                                    <span class="truncate max-w-[130px]">${item.publisher || ''}</span>
+                                </div>
+
+                                <!-- Title -->
+                                <h3 onclick="openItemDetails('${section.id}', '${item.id}')" class="font-bold text-sm text-slate-900 dark:text-white font-academic line-clamp-2 hover:text-emerald-700 cursor-pointer mb-2 leading-snug">
+                                    ${item.title}
+                                </h3>
+
+                                ${item.desc ? `<p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-3 leading-relaxed mb-3">${item.desc}</p>` : ''}
+                            </div>
+
+                            <!-- Footer Actions -->
+                            <div class="pt-3 border-t border-slate-200/60 dark:border-slate-800 flex items-center justify-between gap-2 mt-auto">
+                                <button onclick="openItemDetails('${section.id}', '${item.id}')" class="text-xs text-emerald-700 dark:text-emerald-400 hover:underline font-semibold flex items-center gap-1">
+                                    <span>تفاصيل</span>
+                                    <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i>
+                                </button>
+                                ${item.fileUrl ? `
+                                    <a href="${item.fileUrl}" target="_blank" download class="text-[11px] bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 px-2 py-0.5 rounded flex items-center gap-1 hover:bg-emerald-200">
+                                        <i data-lucide="download" class="w-3 h-3"></i> تحميل
+                                    </a>
+                                ` : ''}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+                `;
+            }
+
+            // Layout 2: Timeline (Academic path, conferences, degrees)
+            if (section.layout === 'timeline') {
+                return `
+                <div class="relative border-r-2 border-emerald-600/30 dark:border-emerald-500/20 mr-4 sm:mr-6 space-y-6">
+                    ${section.items.map((item, idx) => `
+                        <div class="relative pr-6 group">
+                            <!-- Bullet -->
+                            <div class="absolute -right-[9px] top-1.5 w-4 h-4 rounded-full bg-white dark:bg-slate-900 border-2 border-emerald-600 dark:border-emerald-400 group-hover:scale-125 transition-transform flex items-center justify-center">
+                                <div class="w-1.5 h-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400"></div>
+                            </div>
+
+                            <!-- Item Box -->
+                            <div class="bg-slate-50 dark:bg-slate-800/40 rounded-xl p-4 sm:p-5 border border-slate-200/70 dark:border-slate-800 hover:border-emerald-400 transition-colors relative">
+                                <!-- Controls -->
+                                <div class="absolute top-3 left-3 flex gap-1 ${isEditMode ? '' : 'hidden'} edit-control no-print">
+                                    <button onclick="editItem('${section.id}', '${item.id}')" class="p-1 rounded bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:text-emerald-600">
+                                        <i data-lucide="edit-2" class="w-3.5 h-3.5"></i>
+                                    </button>
+                                    <button onclick="deleteItem('${section.id}', '${item.id}')" class="p-1 rounded bg-white dark:bg-slate-700 text-red-500 hover:text-red-700">
+                                        <i data-lucide="trash" class="w-3.5 h-3.5"></i>
+                                    </button>
+                                </div>
+
+                                <div class="flex flex-wrap items-center gap-2 mb-2">
+                                    <span class="text-xs font-bold px-2.5 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300">
+                                        ${item.year || 'سنة غير محددة'}
+                                    </span>
+                                    ${item.publisher ? `<span class="text-xs text-slate-500 dark:text-slate-400 font-medium">| ${item.publisher}</span>` : ''}
+                                </div>
+
+                                <h3 class="text-base sm:text-lg font-bold font-academic text-slate-900 dark:text-white mb-2 leading-relaxed">
+                                    ${item.title}
+                                </h3>
+
+                                ${item.desc ? `<p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed whitespace-pre-line">${item.desc}</p>` : ''}
+
+                                ${item.fileUrl ? `
+                                    <div class="mt-3 pt-2 border-t border-slate-200/50 dark:border-slate-800 flex items-center gap-2">
+                                        <a href="${item.fileUrl}" target="_blank" class="text-xs text-emerald-700 dark:text-emerald-400 flex items-center gap-1 font-semibold hover:underline">
+                                            <i data-lucide="file-text" class="w-3.5 h-3.5"></i> تحميل / الاطلاع على الوثيقة
+                                        </a>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+                `;
+            }
+
+            // Layout 3: Detailed List (Articles & Group books)
+            if (section.layout === 'list') {
+                return `
+                <div class="divide-y divide-slate-100 dark:divide-slate-800/80">
+                    ${section.items.map(item => `
+                        <div class="py-4 first:pt-0 last:pb-0 flex flex-col sm:flex-row sm:items-start justify-between gap-4 group hover:bg-slate-50/50 dark:hover:bg-slate-800/30 p-3 rounded-xl transition-colors relative">
+                            <!-- Content -->
+                            <div class="flex-1">
+                                <div class="flex flex-wrap items-center gap-2 mb-1.5">
+                                    <span class="text-xs font-bold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-emerald-800 dark:text-emerald-300">
+                                        ${item.year || '—'}
+                                    </span>
+                                    ${item.publisher ? `<span class="text-xs text-slate-500 dark:text-slate-400">• ${item.publisher}</span>` : ''}
+                                </div>
+                                <h3 class="text-base font-bold font-academic text-slate-900 dark:text-white mb-1.5 leading-snug">
+                                    ${item.title}
+                                </h3>
+                                ${item.desc ? `<p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">${item.desc}</p>` : ''}
+                            </div>
+
+                            <!-- Actions & Controls -->
+                            <div class="flex items-center gap-2 self-end sm:self-center">
+                                ${item.fileUrl ? `
+                                    <a href="${item.fileUrl}" target="_blank" class="px-3 py-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-100 text-xs font-medium flex items-center gap-1">
+                                        <i data-lucide="external-link" class="w-3.5 h-3.5"></i> قراءة / تحميل
+                                    </a>
+                                ` : ''}
+
+                                <div class="flex items-center gap-1 ${isEditMode ? '' : 'hidden'} edit-control no-print">
+                                    <button onclick="editItem('${section.id}', '${item.id}')" class="p-1.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-emerald-600">
+                                        <i data-lucide="edit-2" class="w-3.5 h-3.5"></i>
+                                    </button>
+                                    <button onclick="deleteItem('${section.id}', '${item.id}')" class="p-1.5 rounded bg-slate-100 dark:bg-slate-800 text-red-500 hover:text-red-700">
+                                        <i data-lucide="trash" class="w-3.5 h-3.5"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+                `;
+            }
+
+            // Default Layout: Items Grid
+            return `
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                ${section.items.map(item => `
+                    <div class="bg-slate-50 dark:bg-slate-800/40 rounded-xl p-4 border border-slate-200/70 dark:border-slate-800 flex flex-col justify-between relative group hover:border-emerald-300 transition-colors">
+                        <!-- Controls -->
+                        <div class="absolute top-2 left-2 flex gap-1 ${isEditMode ? '' : 'hidden'} edit-control no-print">
+                            <button onclick="editItem('${section.id}', '${item.id}')" class="p-1 rounded bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:text-emerald-600">
+                                <i data-lucide="edit-2" class="w-3 h-3"></i>
+                            </button>
+                            <button onclick="deleteItem('${section.id}', '${item.id}')" class="p-1 rounded bg-white dark:bg-slate-700 text-red-500 hover:text-red-700">
+                                <i data-lucide="trash" class="w-3 h-3"></i>
+                            </button>
+                        </div>
+
+                        <div>
+                            <div class="flex items-center justify-between text-xs text-slate-500 mb-2">
+                                <span class="font-bold text-emerald-700 dark:text-emerald-400">${item.year || ''}</span>
+                                <span class="truncate max-w-[150px]">${item.publisher || ''}</span>
+                            </div>
+                            <h3 class="font-bold font-academic text-slate-900 dark:text-white text-sm mb-2 leading-relaxed">
+                                ${item.title}
+                            </h3>
+                            ${item.desc ? `<p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed whitespace-pre-line">${item.desc}</p>` : ''}
+                        </div>
+
+                        ${item.fileUrl ? `
+                            <div class="mt-3 pt-2 border-t border-slate-200/50 dark:border-slate-800">
+                                <a href="${item.fileUrl}" target="_blank" class="text-xs text-emerald-700 dark:text-emerald-400 font-semibold flex items-center gap-1 hover:underline">
+                                    <i data-lucide="link" class="w-3 h-3"></i> رابط المرفق
+                                </a>
+                            </div>
+                        ` : ''}
+                    </div>
+                `).join('')}
+            </div>
+            `;
+        }
+
+        // Stats counter updater
+        function updateStats() {
+            let booksCount = 0;
+            let groupBooksCount = 0;
+            let confCount = 0;
+            let articlesCount = 0;
+
+            const booksSec = appData.sections.find(s => s.id === 'sec_books');
+            if (booksSec) booksCount = booksSec.items.length;
+
+            const groupSec = appData.sections.find(s => s.id === 'sec_group_books');
+            if (groupSec) groupBooksCount = groupSec.items.length;
+
+            const confSec = appData.sections.find(s => s.id === 'sec_conferences');
+            if (confSec) confCount = confSec.items.length;
+
+            const artSec = appData.sections.find(s => s.id === 'sec_articles');
+            if (artSec) articlesCount = artSec.items.length;
+
+            document.getElementById('statBooksCount').textContent = booksCount + "+";
+            document.getElementById('statGroupBooksCount').textContent = groupBooksCount + "+";
+            document.getElementById('statConferencesCount').textContent = confCount + "+";
+            document.getElementById('statArticlesCount').textContent = (articlesCount + 34) + "+";
+        }
+
+        // ================= SECTION MODAL OPERATIONS =================
+        function openAddSectionModal() {
+            document.getElementById('sectionModalTitle').textContent = "إضافة قسم جديد";
+            document.getElementById('sectionForm').reset();
+            document.getElementById('sectionEditId').value = "";
+            document.getElementById('sectionModal').classList.remove('hidden');
+        }
+
+        function editSection(sectionId) {
+            const sec = appData.sections.find(s => s.id === sectionId);
+            if (!sec) return;
+
+            document.getElementById('sectionModalTitle').textContent = "تعديل القسم";
+            document.getElementById('sectionEditId').value = sec.id;
+            document.getElementById('sectionTitleInput').value = sec.title;
+            document.getElementById('sectionDescInput').value = sec.desc || '';
+            document.getElementById('sectionIconInput').value = sec.icon || 'folder';
+            document.getElementById('sectionLayoutInput').value = sec.layout || 'cards';
+
+            document.getElementById('sectionModal').classList.remove('hidden');
+        }
+
+        function closeSectionModal() {
+            document.getElementById('sectionModal').classList.add('hidden');
+        }
+
+        function saveSection(e) {
+            e.preventDefault();
+            const editId = document.getElementById('sectionEditId').value;
+            const title = document.getElementById('sectionTitleInput').value.trim();
+            const desc = document.getElementById('sectionDescInput').value.trim();
+            const icon = document.getElementById('sectionIconInput').value;
+            const layout = document.getElementById('sectionLayoutInput').value;
+
+            if (editId) {
+                // Edit existing
+                const sec = appData.sections.find(s => s.id === editId);
+                if (sec) {
+                    sec.title = title;
+                    sec.desc = desc;
+                    sec.icon = icon;
+                    sec.layout = layout;
+                }
+            } else {
+                // Add new
+                const newId = 'sec_' + Date.now();
+                appData.sections.push({
+                    id: newId,
+                    title,
+                    desc,
+                    icon,
+                    layout,
+                    items: []
+                });
+            }
+
+            saveToStorage();
+            closeSectionModal();
+            if (!editId) {
+                currentSectionId = newId;
+            }
+            renderTopSectionsNav();
+            renderSelectedSection();
+        }
+
+        function deleteSection(sectionId) {
+            if (!confirm("هل أنت متأكد من رغبتك في حذف هذا القسم وجميع محتوياته؟")) return;
+            appData.sections = appData.sections.filter(s => s.id !== sectionId);
+            if (currentSectionId === sectionId) {
+                currentSectionId = appData.sections.length > 0 ? appData.sections[0].id : null;
+            }
+            saveToStorage();
+            renderTopSectionsNav();
+            renderSelectedSection();
+            updateStats();
+        }
+
+        // ================= ITEM MODAL OPERATIONS =================
+        let currentUploadedCover = "";
+        let currentUploadedDoc = "";
+
+        function openAddItemModal(sectionId) {
+            document.getElementById('itemModalTitle').textContent = "إضافة عنصر جديد";
+            document.getElementById('itemForm').reset();
+            document.getElementById('itemSectionId').value = sectionId;
+            document.getElementById('itemEditId').value = "";
+            currentUploadedCover = "";
+            currentUploadedDoc = "";
+            clearCoverPreview();
+            clearDocPreview();
+            document.getElementById('itemModal').classList.remove('hidden');
+        }
+
+        function editItem(sectionId, itemId) {
+            const sec = appData.sections.find(s => s.id === sectionId);
+            if (!sec) return;
+            const item = sec.items.find(i => i.id === itemId);
+            if (!item) return;
+
+            document.getElementById('itemModalTitle').textContent = "تعديل العنصر";
+            document.getElementById('itemSectionId').value = sectionId;
+            document.getElementById('itemEditId').value = item.id;
+            document.getElementById('itemTitleInput').value = item.title;
+            document.getElementById('itemYearInput').value = item.year || '';
+            document.getElementById('itemPublisherInput').value = item.publisher || '';
+            document.getElementById('itemDescInput').value = item.desc || '';
+            document.getElementById('itemCoverUrlInput').value = (item.cover && !item.cover.startsWith('data:')) ? item.cover : '';
+            document.getElementById('itemFileUrlInput').value = (item.fileUrl && !item.fileUrl.startsWith('data:')) ? item.fileUrl : '';
+
+            // Handle cover preview
+            currentUploadedCover = item.cover || "";
+            if (currentUploadedCover) {
+                document.getElementById('coverPreviewImg').src = currentUploadedCover;
+                document.getElementById('coverPreviewContainer').classList.remove('hidden');
+            } else {
+                clearCoverPreview();
+            }
+
+            // Handle doc preview
+            currentUploadedDoc = item.fileUrl || "";
+            if (currentUploadedDoc) {
+                document.getElementById('docFileName').textContent = "ملف متاح";
+                document.getElementById('docPreviewContainer').classList.remove('hidden');
+            } else {
+                clearDocPreview();
+            }
+
+            document.getElementById('itemModal').classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        function closeItemModal() {
+            document.getElementById('itemModal').classList.add('hidden');
+        }
+
+        // Handle image cover file upload (converts to Base64)
+        function handleCoverUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            if (file.size > 2 * 1024 * 1024) {
+                alert("حجم صورة الغلاف يفضل أن يكون أقل من 2 ميغابايت للحفاظ على سرعة المتصفح.");
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                currentUploadedCover = e.target.result;
+                document.getElementById('coverPreviewImg').src = currentUploadedCover;
+                document.getElementById('coverPreviewContainer').classList.remove('hidden');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function clearCoverPreview() {
+            currentUploadedCover = "";
+            document.getElementById('itemCoverFileInput').value = "";
+            document.getElementById('coverPreviewContainer').classList.add('hidden');
+        }
+
+        // Handle document file upload (converts to Base64)
+        function handleDocUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            if (file.size > 5 * 1024 * 1024) {
+                alert("تنبيه: حجم الملف يتجاوز 5 ميغابايت. يفضل استخدام رابط مباشر للملفات الكبيرة.");
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                currentUploadedDoc = e.target.result;
+                document.getElementById('docFileName').textContent = file.name;
+                document.getElementById('docPreviewContainer').classList.remove('hidden');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function clearDocPreview() {
+            currentUploadedDoc = "";
+            document.getElementById('itemDocFileInput').value = "";
+            document.getElementById('docPreviewContainer').classList.add('hidden');
+        }
+
+        function saveItem(e) {
+            e.preventDefault();
+            const sectionId = document.getElementById('itemSectionId').value;
+            const editId = document.getElementById('itemEditId').value;
+
+            const sec = appData.sections.find(s => s.id === sectionId);
+            if (!sec) return;
+
+            const title = document.getElementById('itemTitleInput').value.trim();
+            const year = document.getElementById('itemYearInput').value.trim();
+            const publisher = document.getElementById('itemPublisherInput').value.trim();
+            const desc = document.getElementById('itemDescInput').value.trim();
+            
+            // Cover logic: priority to uploaded file, then URL
+            const coverUrl = document.getElementById('itemCoverUrlInput').value.trim();
+            const finalCover = currentUploadedCover || coverUrl || "";
+
+            // Doc logic: priority to uploaded doc, then URL
+            const fileUrl = document.getElementById('itemFileUrlInput').value.trim();
+            const finalDoc = currentUploadedDoc || fileUrl || "";
+
+            if (editId) {
+                // Update
+                const item = sec.items.find(i => i.id === editId);
+                if (item) {
+                    item.title = title;
+                    item.year = year;
+                    item.publisher = publisher;
+                    item.desc = desc;
+                    item.cover = finalCover;
+                    item.fileUrl = finalDoc;
+                }
+            } else {
+                // Add new item
+                if (!sec.items) sec.items = [];
+                sec.items.unshift({
+                    id: 'item_' + Date.now(),
+                    title,
+                    year,
+                    publisher,
+                    desc,
+                    cover: finalCover,
+                    fileUrl: finalDoc
+                });
+            }
+
+            saveToStorage();
+            closeItemModal();
+            renderTopSectionsNav();
+            renderSelectedSection();
+            updateStats();
+        }
+
+        function deleteItem(sectionId, itemId) {
+            if (!confirm("هل أنت متأكد من حذف هذا العنصر؟")) return;
+            const sec = appData.sections.find(s => s.id === sectionId);
+            if (!sec) return;
+
+            sec.items = sec.items.filter(i => i.id !== itemId);
+            saveToStorage();
+            renderTopSectionsNav();
+            renderSelectedSection();
+            updateStats();
+        }
+
+        // ================= ITEM DETAILS MODAL =================
+        function openItemDetails(sectionId, itemId) {
+            const sec = appData.sections.find(s => s.id === sectionId);
+            if (!sec) return;
+            const item = sec.items.find(i => i.id === itemId);
+            if (!item) return;
+
+            if (currentSectionId !== sectionId) {
+                currentSectionId = sectionId;
+                renderTopSectionsNav();
+                renderSelectedSection();
+            }
+
+            document.getElementById('viewItemBadge').textContent = sec.title;
+            document.getElementById('viewItemTitle').textContent = item.title;
+            
+            let metaHtml = '';
+            if (item.year) metaHtml += `<span class="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded font-bold text-emerald-700 dark:text-emerald-400">السنة: ${item.year}</span>`;
+            if (item.publisher) metaHtml += `<span class="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-slate-600 dark:text-slate-300">الجهة: ${item.publisher}</span>`;
+            document.getElementById('viewItemMeta').innerHTML = metaHtml;
+
+            document.getElementById('viewItemDesc').innerHTML = item.desc ? `<p class="whitespace-pre-line leading-relaxed">${item.desc}</p>` : '<p class="text-slate-400">لا يوجد وصف إضافي مسجل.</p>';
+
+            // Cover display
+            const coverCol = document.getElementById('viewCoverCol');
+            if (item.cover) {
+                coverCol.classList.remove('hidden');
+                coverCol.innerHTML = `
+                    <div class="book-cover-effect rounded-lg overflow-hidden max-w-[200px]">
+                        <img src="${item.cover}" alt="${item.title}" class="w-full h-auto object-cover rounded-lg">
+                    </div>
+                `;
+            } else {
+                coverCol.classList.add('hidden');
+            }
+
+            // Action buttons
+            let actionsHtml = '';
+            if (item.fileUrl) {
+                actionsHtml += `
+                    <a href="${item.fileUrl}" target="_blank" download class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5 shadow">
+                        <i data-lucide="download" class="w-4 h-4"></i> تحميل المستند / الكتاب
+                    </a>
+                `;
+            }
+            if (isEditMode) {
+                actionsHtml += `
+                    <button onclick="closeViewModal(); editItem('${sectionId}', '${item.id}')" class="px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-semibold flex items-center gap-1.5">
+                        <i data-lucide="edit-3" class="w-4 h-4"></i> تعديل العنصر
+                    </button>
+                `;
+            }
+            document.getElementById('viewItemActions').innerHTML = actionsHtml;
+
+            document.getElementById('viewModal').classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        function closeViewModal() {
+            document.getElementById('viewModal').classList.add('hidden');
+        }
+
+        // ================= SEARCH FUNCTIONALITY =================
+        function toggleSearchModal() {
+            const modal = document.getElementById('searchModal');
+            const isHidden = modal.classList.toggle('hidden');
+            if (!isHidden) {
+                setTimeout(() => document.getElementById('searchInput').focus(), 100);
+            }
+        }
+
+        function performSearch() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            const resultsContainer = document.getElementById('searchResults');
+
+            if (!query) {
+                resultsContainer.innerHTML = '<div class="text-center text-slate-400 py-8">ابدأ بالكتابة للبحث في الإنتاج العلمي والسيرة...</div>';
+                return;
+            }
+
+            const matches = [];
+            appData.sections.forEach(sec => {
+                if (!sec.items) return;
+                sec.items.forEach(item => {
+                    const matchTitle = (item.title || '').toLowerCase().includes(query);
+                    const matchDesc = (item.desc || '').toLowerCase().includes(query);
+                    const matchPub = (item.publisher || '').toLowerCase().includes(query);
+                    const matchYear = (item.year || '').toLowerCase().includes(query);
+
+                    if (matchTitle || matchDesc || matchPub || matchYear) {
+                        matches.push({ sec, item });
+                    }
+                });
+            });
+
+            if (matches.length === 0) {
+                resultsContainer.innerHTML = `
+                    <div class="text-center text-slate-500 py-8">
+                        لم يتم العثور على نتائج مطابقة لـ "${query}"
+                    </div>
+                `;
+                return;
+            }
+
+            resultsContainer.innerHTML = matches.map(({ sec, item }) => `
+                <div onclick="toggleSearchModal(); openItemDetails('${sec.id}', '${item.id}')" class="p-3 bg-slate-50 dark:bg-slate-800/60 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 rounded-xl cursor-pointer transition-colors border border-slate-100 dark:border-slate-800">
+                    <div class="flex items-center justify-between text-[11px] text-slate-500 mb-1">
+                        <span class="text-emerald-700 dark:text-emerald-400 font-bold">${sec.title}</span>
+                        <span>${item.year || ''}</span>
+                    </div>
+                    <div class="font-bold text-slate-900 dark:text-white font-academic text-sm leading-snug">
+                        ${item.title}
+                    </div>
+                    ${item.publisher ? `<div class="text-xs text-slate-500 mt-1">${item.publisher}</div>` : ''}
+                </div>
+            `).join('');
+            lucide.createIcons();
+        }
+
+        // ================= CHANGE PROFILE PHOTO =================
+        let tempProfilePhoto = "";
+
+        function openProfilePhotoModal() {
+            tempProfilePhoto = appData.profile.avatar || defaultData.profile.avatar;
+            document.getElementById('photoModalPreview').src = tempProfilePhoto;
+            document.getElementById('profileModalFileInput').value = "";
+            document.getElementById('profileModalUrlInput').value = (tempProfilePhoto.startsWith('data:') ? '' : tempProfilePhoto);
+            document.getElementById('profilePhotoModal').classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        function closeProfilePhotoModal() {
+            document.getElementById('profilePhotoModal').classList.add('hidden');
+        }
+
+        function handleProfileFileUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            if (file.size > 5 * 1024 * 1024) {
+                alert("تنبيه: حجم ملف الصورة كبير، يفضل صورة أقل من 5 ميغابايت.");
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                tempProfilePhoto = e.target.result;
+                document.getElementById('photoModalPreview').src = tempProfilePhoto;
+                document.getElementById('profileModalUrlInput').value = "";
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function handleProfileUrlChange(event) {
+            const url = event.target.value.trim();
+            if (url) {
+                tempProfilePhoto = url;
+                document.getElementById('photoModalPreview').src = tempProfilePhoto;
+            }
+        }
+
+        function resetDefaultProfilePhoto() {
+            tempProfilePhoto = defaultData.profile.avatar;
+            document.getElementById('photoModalPreview').src = tempProfilePhoto;
+            document.getElementById('profileModalFileInput').value = "";
+            document.getElementById('profileModalUrlInput').value = "";
+        }
+
+        function saveProfilePhoto() {
+            if (!tempProfilePhoto) return;
+            appData.profile.avatar = tempProfilePhoto;
+            document.getElementById('profileImage').src = tempProfilePhoto;
+            saveToStorage();
+            closeProfilePhotoModal();
+            alert("تم تحديث وحفظ صورتكم الشخصية بنجاح!");
+        }
+
+        function changeProfilePhoto() {
+            openProfilePhotoModal();
+        }
+
+        // ================= BACKUP & EXPORT/IMPORT =================
+        function toggleSettingsMenu() {
+            document.getElementById('settingsMenu').classList.toggle('hidden');
+        }
+
+        // Close menu on click outside
+        window.addEventListener('click', (e) => {
+            const menu = document.getElementById('settingsMenu');
+            if (menu && !menu.contains(e.target) && !e.target.closest('button[onclick="toggleSettingsMenu()"]')) {
+                menu.classList.add('hidden');
+            }
+        });
+
+        function exportDataJson() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(appData, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", `anees_platform_backup_${new Date().toISOString().slice(0,10)}.json`);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        }
+
+        function importDataJson(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const parsed = JSON.parse(e.target.result);
+                    if (parsed && parsed.sections) {
+                        appData = parsed;
+                        saveToStorage();
+                        initApp();
+                        alert("تم استيراد البيانات وتحديث المنصة بنجاح!");
+                    } else {
+                        alert("ملف غير صالح. تأكد من أن الملف هو نسخة احتياطية لمنصة أنيس.");
+                    }
+                } catch (err) {
+                    alert("حدث خطأ أثناء قراءة الملف: " + err.message);
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function resetToDefaultData() {
+            if (confirm("هل تريد بالتأكيد استعادة البيانات الأصلية الكاملة للدكتور مصطفى العادل؟ سيتم استبدال أية تعديلات غير محفوظة خارجياً.")) {
+                appData = JSON.parse(JSON.stringify(defaultData));
+                saveToStorage();
+                initApp();
+                alert("تمت استعادة البيانات الأصلية بنجاح!");
+            }
+        }
+
+        function printCV() {
+            // Render all sections for printing, then restore single section view
+            const oldSelected = currentSectionId;
+            const container = document.getElementById('sectionsContainer');
+            container.innerHTML = appData.sections.map(section => `
+                <section id="print_${section.id}" class="bg-white rounded-2xl border border-slate-200 p-6 mb-8">
+                    <div class="flex items-center gap-3 pb-3 border-b border-slate-200 mb-4">
+                        <h2 class="text-xl font-bold font-academic text-slate-900">${section.title}</h2>
+                    </div>
+                    <div>${renderSectionItems(section)}</div>
+                </section>
+            `).join('');
+            lucide.createIcons();
+
+            window.print();
+
+            // Restore selected section
+            currentSectionId = oldSelected;
+            renderSelectedSection();
+        }
+
+        // Launch Application on load
+        window.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>
